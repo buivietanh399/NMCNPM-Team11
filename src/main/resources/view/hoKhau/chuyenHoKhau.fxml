@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="639.0" prefWidth="1146.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ChuyenHoKhauController">
+   <children>
+      <Label layoutX="394.0" layoutY="8.0" text="Chuyển hộ khẩu " textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="547.0" text="Ghi chú: (*)  bắt buộc điền đầy đủ" textFill="#e3d912">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="68.0" text="Mã hộ khẩu" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="36.0" layoutY="106.0" text="Họ tên chủ hộ" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="147.0" prefHeight="30.0" prefWidth="140.0" text="Địa chỉ hiện tại" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="191.0" prefHeight="30.0" prefWidth="179.0" text="Địa chỉ chuyển đến" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="38.0" layoutY="421.0" text="Ghi chú:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="dia_chi_chuyen_den_cd" layoutX="254.0" layoutY="187.0" prefHeight="37.0" prefWidth="670.0" promptText="Địa chỉ chuyển đến" style="-fx-background-color: #FFF;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextArea fx:id="li_do_cd" layoutX="254.0" layoutY="421.0" prefHeight="88.0" prefWidth="501.0" promptText="Ghi chú" style="-fx-control-inner-background: #FFF; -fx-background-color: #FFF;">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
+      <Button layoutX="480.0" layoutY="540.0" mnemonicParsing="false" onAction="#huy_button" prefHeight="43.0" prefWidth="123.0" style="-fx-background-color: white;" text="Hủy">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Button layoutX="353.0" layoutY="540.0" mnemonicParsing="false" onAction="#xac_nhan_button" style="-fx-background-color: white;" text="Xác nhận">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label layoutX="34.0" layoutY="237.0" prefHeight="30.0" prefWidth="161.0" text="Tỉnh/Thành phố " textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="279.0" prefHeight="30.0" prefWidth="140.0" text="Quận/Huyện " textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="319.0" prefHeight="30.0" prefWidth="123.0" text="Phường/Xã " textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="361.0" prefHeight="30.0" prefWidth="134.0" text="Ngày chuyển " textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tinh_thanh_cd" layoutX="254.0" layoutY="233.0" prefHeight="38.0" prefWidth="268.0" promptText="Tỉnh/Thành phố mới" style="-fx-background-color: #FFF;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="quan_huyen_cd" layoutX="254.0" layoutY="275.0" prefHeight="38.0" prefWidth="268.0" promptText="Quận/Huyện mới" style="-fx-background-color: \\;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <DatePicker fx:id="ngay_chuyen_den_datepicker" layoutX="253.0" layoutY="361.0" onAction="#ngaychuyenden_datepicker" prefHeight="37.0" prefWidth="268.0" promptText="Ngày chuyển đến" style="-fx-control-inner-background: #FFF; -fx-background-color: #FFF;" />
+      <TextField fx:id="phuong_xa_cd" layoutX="253.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="Phường/Xã mới" style="-fx-background-color: #FFF;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Label layoutX="934.0" layoutY="191.0" text="(*)" textFill="RED">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="237.0" text="(*)" textFill="RED">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="319.0" text="(*)" textFill="RED">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="279.0" text="(*)" textFill="RED">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="364.0" text="(*)" textFill="RED">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ma_ho_khau_chuyendi" layoutX="254.0" layoutY="68.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ho_ten_chu_ho_chuyendi" layoutX="254.0" layoutY="106.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="dia_chi_hien_tai_chuyendi" layoutX="254.0" layoutY="147.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

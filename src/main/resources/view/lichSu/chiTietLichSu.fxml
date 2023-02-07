@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LichSu.ChiTietLichSuController">
+   <children>
+      <Label fx:id="titleLabel" layoutX="478.0" layoutY="6.0" text="Lịch sử hoat động" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="bangLSHD" layoutX="72.0" layoutY="78.0" prefHeight="560.0" prefWidth="1002.0" style="-fx-background-color: white;">
+        <columns>
+          <TableColumn fx:id="tenHD" prefWidth="312.59999084472656" text="Loại hoạt động" />
+          <TableColumn fx:id="idHD" prefWidth="172.99996948242188" text="Id đối tượng" />
+            <TableColumn fx:id="noiDungHD" prefWidth="255.20001220703125" text="Nội dung " />
+            <TableColumn fx:id="thoiGianHD" prefWidth="262.0" text="Thời gian" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="backImageView" fitHeight="57.0" fitWidth="180.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back_blue.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

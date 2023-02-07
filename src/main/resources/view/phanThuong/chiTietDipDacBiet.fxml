@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1105.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietDipDacBietController">
+      <children>
+          <Label fx:id="tieuDe" layoutX="385.0" layoutY="14.0" text="Chi tiết phần thưởng dịp " textFill="#f8f3f3">
+              <font>
+                  <Font name="System Bold" size="30.0" />
+              </font>
+          </Label>
+          <Pane layoutX="56.0" layoutY="175.0" prefHeight="44.0" prefWidth="300.0">
+              <children>
+                  <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+            <Label fx:id="namHoc" layoutX="126.0" layoutY="6.0" text="Năm học" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="238.0" prefHeight="44.0" prefWidth="1015.0">
+              <children>
+                  <Label layoutY="8.0" text="Độ tuổi từ 0 đến 5 tuổi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <Label layoutX="435.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+            <Label fx:id="phanThuong05" layoutX="272.0" layoutY="7.0" text="Phần thưởng" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tien05" layoutX="508.0" layoutY="7.0" text="Tiền" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="317.0" prefHeight="44.0" prefWidth="1015.0">
+              <children>
+                  <Label layoutY="8.0" text="Độ tuổi từ 6 đến 14 tuổi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <Label layoutX="437.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+            <Label fx:id="phanThuong614" layoutX="274.0" layoutY="7.0" text="Phần thưởng" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tien614" layoutX="508.0" layoutY="7.0" text="Tiền" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="394.0" prefHeight="44.0" prefWidth="1015.0">
+              <children>
+                  <Label layoutY="8.0" text="Độ tuổi từ 15 đến 17 tuổi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <Label layoutX="435.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+            <Label fx:id="phanThuong1517" layoutX="271.0" layoutY="7.0" text="Phần thưởng" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tien1517" layoutX="508.0" layoutY="7.0" text="Tiền" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="466.0" prefHeight="44.0" prefWidth="1015.0">
+              <children>
+                  <Label layoutY="8.0" text="Mô tả:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+            <Label fx:id="moTa" layoutX="79.0" layoutY="8.0" text="Phần thưởng" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Button mnemonicParsing="false" onMouseClicked="#quayLaiClick" text="BACK">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+      <Pane layoutX="56.0" layoutY="100.0" prefHeight="44.0" prefWidth="617.0">
+         <children>
+            <Label layoutY="8.0" text="Tên dịp:" textFill="#f8f1f1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tenDip" layoutX="125.0" layoutY="8.0" text="Tên dịp" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      </children>
+  </Pane>

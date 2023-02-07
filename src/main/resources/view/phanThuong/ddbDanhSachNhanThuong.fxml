@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="994.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.DdbDanhSachNhanThuongController">
+      <children>
+          <Label fx:id="tieuDe" layoutX="219.0" layoutY="14.0" text="Danh sách nhận khẩu nhận thưởng dịp " textFill="#f8f3f3">
+              <font>
+                  <Font name="System Bold" size="30.0" />
+              </font>
+          </Label>
+          <Button mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: WHITE;" text="BACK">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+          <Label layoutX="59.0" layoutY="104.0" text="Danh sách nhân khẩu được nhận thưởng" textFill="WHITE">
+              <font>
+                  <Font name="System Bold Italic" size="20.0" />
+              </font>
+          </Label>
+          <Pane layoutX="120.0" layoutY="170.0" prefHeight="50.0" prefWidth="689.0" style="-fx-background-color: WHITE; -fx-background-radius: 30;">
+              <children>
+                  <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="641.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@../../image/search.png" />
+                      </image>
+                  </ImageView>
+                  <TextField fx:id="searchText" layoutX="24.0" onKeyPressed="#searchEnter" prefHeight="50.0" prefWidth="443.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: WHITE;">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </TextField>
+                  <ComboBox fx:id="comboBox" layoutX="473.0" onAction="#truongTraCuu" prefHeight="49.0" prefWidth="153.0" promptText="Trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: WHITE;" />
+              </children>
+          </Pane>
+          <TableView fx:id="nhanKhauTable" editable="true" layoutX="59.0" layoutY="265.0" prefHeight="312.0" prefWidth="786.0">
+              <columns>
+                  <TableColumn fx:id="idCol" prefWidth="121.0" style="-fx-aligment: CENTER;" text="ID Nhân khẩu" />
+                  <TableColumn fx:id="tenCol" prefWidth="290.0" style="-fx-aligment: CENTER;" text="Tên nhân khẩu" />
+                  <TableColumn fx:id="nhomCol" prefWidth="258.0" style="-fx-aligment: CENTER;" text="Nhóm phần thưởng" />
+                  <TableColumn fx:id="kiemTraCol" prefWidth="116.0" style="-fx-aligment: CENTER;" text="Đã trao thưởng" />
+              </columns>
+          </TableView>
+      </children>
+  </Pane>

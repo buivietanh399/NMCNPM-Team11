@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.HoKhauController">
+   <children>
+      <Label layoutX="412.0" layoutY="14.0" text="Quản lý thông tin hộ khẩu" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+       <Pane layoutX="18.0" layoutY="119.0" prefHeight="50.0" prefWidth="822.0" style="-fx-background-color: #FFF; -fx-background-radius: 30;">
+           <children>
+               <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="772.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../image/search.png" />
+                   </image>
+               </ImageView>
+               <TextField fx:id="search_ho_khau" prefHeight="50.0" prefWidth="430.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: #FFF;">
+                   <font>
+                       <Font size="15.0" />
+                   </font>
+               </TextField>
+               <ComboBox fx:id="comboBox" layoutX="521.0" layoutY="1.0" prefHeight="49.0" prefWidth="231.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #Fff;" />
+           </children>
+       </Pane>
+      <TableView fx:id="table" layoutX="18.0" layoutY="183.0" prefHeight="405.0" prefWidth="822.0">
+        <columns>
+          <TableColumn fx:id="id_ho_khauCol" prefWidth="78.0" text="Mã hộ khẩu" />
+          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="82.0" text="Mã chủ hộ" />
+            <TableColumn fx:id="hoten_chu_hoCol" prefWidth="145.0" text="Tên chủ hộ" />
+            <TableColumn fx:id="address_ho_khauCol" prefWidth="275.0" text="Địa chỉ" />
+            <TableColumn fx:id="ngay_taoCol" prefWidth="122.0" text="Ngày tạo" />
+            <TableColumn fx:id="trang_thaiCol" prefWidth="118.0" text="Trạng thái" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#delete" text="Xoá hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#show" text="Xem hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#change" text="Sửa hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#tach" text="Tách hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#chuyen" text="Chuyển hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#xem_lich_su" text="Xem lịch sử chuyển đi" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <Button layoutX="854.0" layoutY="191.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: white;" text="Thêm hộ khẩu">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Button layoutX="854.0" layoutY="288.0" mnemonicParsing="false" onAction="#refresh_button" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: white;" text="Reset">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Text fill="#d7ca13" layoutX="68.0" layoutY="668.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*) Với mỗi một hộ khẩu, chọn chuột phải để hiện các phím chức năng" wrappingWidth="721.00390625">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

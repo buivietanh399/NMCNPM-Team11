@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.DipDacBietController">
+   <content>
+      <Pane fx:id="ddbMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;">
+          <children>
+              <Pane prefHeight="66.0" prefWidth="1449.0" style="-fx-background-color: WHITE;">
+                  <children>
+                      <ImageView fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backMouseClick" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../image/back.png" />
+                          </image>
+                      </ImageView>
+                  <Label layoutX="330.0" layoutY="12.0" text="Quản lý phần thưởng dịp đặc biệt" textFill="#332a99">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  </children>
+              </Pane>
+              <Pane layoutX="151.0" layoutY="138.0" prefHeight="50.0" prefWidth="649.0" style="-fx-background-color: WHITE; -fx-background-radius: 30;">
+                  <children>
+                      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="600.0" onMouseClicked="#ddbSearchClick" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../image/search.png" />
+                          </image>
+                      </ImageView>
+                      <TextField fx:id="searchText" editable="false" layoutX="24.0" onKeyPressed="#ddbSearchEnter" prefHeight="50.0" prefWidth="363.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: WHITE;">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </TextField>
+                      <ComboBox fx:id="comboBox" layoutX="397.0" onAction="#truongTraCuu" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: WHITE;" />
+                  </children>
+              </Pane>
+              <AnchorPane layoutX="56.0" layoutY="223.0" prefHeight="410.0" prefWidth="760.0">
+                  <children>
+                      <TableView fx:id="ddbTable" layoutX="-14.0" layoutY="188.0" prefHeight="359.0" prefWidth="739.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="ddbIDCol" editable="false" prefWidth="75.0" text="ID Dịp" />
+                        <TableColumn fx:id="ddbTenCol" editable="false" prefWidth="183.0" text="Tên dịp" />
+                              <TableColumn fx:id="ddbNamCol" editable="false" prefWidth="77.0" text="Năm" />
+                              <TableColumn fx:id="ddbSoNguoiCol" editable="false" prefWidth="202.0" text="Số người chưa trao thưởng" />
+                              <TableColumn fx:id="ddbMoTaCol" editable="false" prefWidth="222.0" text="Mô tả" />
+                          </columns>
+                          <contextMenu>
+                              <ContextMenu>
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" onAction="#xemDip" text="Xem chi tiết dịp trao thưởng" />
+                                      <MenuItem mnemonicParsing="false" onAction="#xemDanhSach" text="Xem danh sách nhân khẩu được nhận thưởng" />
+                                      <MenuItem mnemonicParsing="false" onAction="#chinhSuaThongTin" text="Chỉnh sửa thông tin dịp trao thưởng" />
+                                      <MenuItem mnemonicParsing="false" onAction="#xoaDip" text="Xóa dịp trao thưởng" />
+                                  </items>
+                              </ContextMenu>
+                          </contextMenu>
+                      </TableView>
+                  </children>
+              </AnchorPane>
+              <Button layoutX="849.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#createDip" prefHeight="50.0" style="-fx-background-color: WHITE;" text="Tạo dịp trao thưởng mới">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+              </Button>
+          </children>
+      </Pane>
+   </content>
+</ScrollPane>

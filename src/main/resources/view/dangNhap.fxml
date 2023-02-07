@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="494.0" style="-fx-background-color: white; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NguoiDungController">
+   <children>
+      <Label layoutX="165.0" layoutY="27.0" prefHeight="52.0" prefWidth="255.0" style="-fx-background-radius: 50; -fx-background-color: #FFF;" text="Quản lý nhân khẩu" textFill="#6b91fb">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="huyButton" layoutX="275.0" layoutY="250.0" mnemonicParsing="false" onAction="#huyButtonOnAction" onMouseEntered="#huyMouseEntered" onMouseExited="#huyMouseExited" prefHeight="34.0" prefWidth="103.0" style="-fx-background-color: #6b91fb; -fx-background-radius: 20; -fx-border-radius: 20;" text="Hủy" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="dangNhapButton" layoutX="157.0" layoutY="250.0" mnemonicParsing="false" onAction="#dangNhapButtonOnAction" onMouseEntered="#dangNhapMouseEntered" onMouseExited="#dangNhapMouseExited" prefHeight="34.0" prefWidth="103.0" style="-fx-background-color: #6b91fb; -fx-background-radius: 20;" text="Đăng nhập" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="taiKhoan" layoutX="119.0" layoutY="102.0" prefHeight="45.0" prefWidth="312.0" promptText="Tài khoản" style="-fx-background-radius: 25;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="matKhau" layoutX="119.0" layoutY="166.0" prefHeight="46.0" prefWidth="312.0" promptText="Mật khẩu" style="-fx-background-radius: 25;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="91.0" fitWidth="134.0" layoutX="66.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/dang%20nhap.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="thongBaoLabel" layoutX="141.0" layoutY="212.0" prefHeight="38.0" prefWidth="268.0" text="Thông báo" textFill="RED" visible="false">
+         <font>
+            <Font name="Times New Roman Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Label>
+   </children>
+</AnchorPane>

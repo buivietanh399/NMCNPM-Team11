@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="phanThuongPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.PhanThuongController">
+   <children>
+      <Label layoutX="408.0" layoutY="14.0" text="Quản lý phần thưởng" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="188.0" layoutY="149.0" prefHeight="290.0" prefWidth="340.0">
+         <children>
+            <ImageView fitHeight="276.0" fitWidth="269.0" layoutX="36.0" nodeOrientation="INHERIT" onMouseClicked="#hsgClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/HSG.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <Label layoutX="14.0" layoutY="231.0" text="Phần thưởng học sinh giỏi" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="603.0" layoutY="149.0" prefHeight="290.0" prefWidth="340.0">
+         <children>
+            <ImageView fitHeight="220.0" fitWidth="216.0" layoutX="65.0" layoutY="29.0" onMouseClicked="#dipDacBietOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/dip_dac_biet.png" />
+               </image></ImageView>
+            <Label layoutX="15.0" layoutY="231.0" text="Phần thưởng dịp đặc biệt" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>

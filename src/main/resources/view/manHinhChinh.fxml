@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="borderPane" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManHinhChinhController">
+   <left>
+      <VBox prefHeight="668.0" prefWidth="220.0" style="-fx-background-color: #FFF;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="109.0" fitWidth="97.0" layoutX="62.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/home.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Button fx:id="trangChuButton" mnemonicParsing="false" onAction="#trangChuButtonOnAction" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: #00008B;" text="Trang chủ" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="nhanKhauButton" mnemonicParsing="false" onAction="#nhanKhauButtonOnAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #00008B;" text="Nhân khẩu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="hoKhauButton" mnemonicParsing="false" onAction="#hoKhauButtonOnAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #00008B;" text="Hộ khẩu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="phanThuongButton" mnemonicParsing="false" onAction="#phanThuongButtonOnAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #00008B;" text="Phần thưởng" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Pane prefHeight="234.0" prefWidth="183.0">
+               <children>
+                  <Button fx:id="dangXuatButton" layoutX="112.0" layoutY="167.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" onMouseEntered="#dangXuatButtonMouseEntered" onMouseExited="#dangXuatButtonMouseExited" style="-fx-background-color: #00008B; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="taiKhoanButton" layoutX="15.0" layoutY="167.0" mnemonicParsing="false" onAction="#taiKhoanButtonOnAction" onMouseEntered="#dangXuatButtonMouseEntered" onMouseExited="#dangXuatButtonMouseExited" style="-fx-background-color: #00008B; -fx-background-radius: 50;" text="Tài khoản" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="thongKeButton" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#thongKeButtonOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00008B;" text="Thống kê" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="lichSuButton" layoutX="12.0" layoutY="84.0" mnemonicParsing="false" onAction="#lichSuButtonOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00008B;" text="Lịch sử" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <Pane fx:id="mainPane" prefHeight="667.0" prefWidth="1180.0" style="-fx-background-color: #FFF;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

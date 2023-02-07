@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="725.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeNhanKhauController">
+    <children>
+        <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
+            <children>
+                <ImageView fx:id="nhanKhauBackIcon" fitHeight="50.0" fitWidth="153.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/back_blue.png" />
+                    </image>
+                </ImageView>
+            <Label alignment="CENTER" layoutX="434.0" layoutY="11.0" text="Thống kê nhân khẩu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font></Label>
+            </children>
+        </Pane>
+      <ImageView fx:id="gioiTinhImageView" fitHeight="150.0" fitWidth="200.0" layoutX="139.0" layoutY="339.0" onMouseClicked="#gioiTinhImageViewMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/gender.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="doTuoiImageView" fitHeight="150.0" fitWidth="200.0" layoutX="484.0" layoutY="339.0" onMouseClicked="#doTuoiImageViewMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/age.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="trangThaiCuTruImageView" fitHeight="150.0" fitWidth="200.0" layoutX="856.0" layoutY="339.0" onMouseClicked="#trangThaiCuTruImageViewMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/status_location.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="166.0" layoutY="496.0" text="Giới tính" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="514.0" layoutY="496.0" text="Độ tuổi" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="812.0" layoutY="496.0" text="Trạng thái cư trú" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>

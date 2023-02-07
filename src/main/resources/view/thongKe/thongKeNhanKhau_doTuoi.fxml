@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeNhanKhau_doTuoiController">
+   <children>
+      <Label layoutX="308.0" layoutY="20.0" text="Thống kê nhân khẩu theo nhóm tuổi" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Pane fx:id="doTuoiPane" layoutX="14.0" layoutY="156.0" prefHeight="581.0" prefWidth="663.0" style="-fx-background-color: white;" />
+      <Label layoutX="422.0" layoutY="104.0" text="Năm : " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="yearComboBox" layoutX="547.0" layoutY="114.0" onAction="#yearComboBoxOnAction" prefWidth="150.0" style="-fx-background-color: white;" />
+      <Label fx:id="thongBaoLabel" layoutX="782.0" layoutY="674.0" prefHeight="25.0" prefWidth="286.0" text="Label" textFill="RED" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="nhanXetTextArea" layoutX="670.0" layoutY="156.0" prefHeight="581.0" prefWidth="488.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </TextArea>
+   </children>
+</Pane>

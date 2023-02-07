@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKePhanThuongController">
+   <children>
+      <Pane layoutX="195.0" layoutY="242.0" prefHeight="290.0" prefWidth="340.0">
+         <children>
+            <ImageView fitHeight="276.0" fitWidth="269.0" layoutX="36.0" nodeOrientation="INHERIT" onMouseClicked="#hocSinhGioiClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/HSG.png" />
+               </image></ImageView>
+            <TextField alignment="CENTER" editable="false" layoutY="222.0" prefHeight="54.0" prefWidth="340.0" style="-fx-background-color: 0; -fx-text-inner-color: WHITE;" text="Phần thưởng học sinh giỏi">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="618.0" layoutY="242.0" prefHeight="290.0" prefWidth="340.0">
+         <children>
+            <ImageView fitHeight="220.0" fitWidth="216.0" layoutX="65.0" layoutY="29.0" onMouseClicked="#dipDacBietClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/dip_dac_biet.png" />
+               </image></ImageView>
+            <TextField alignment="CENTER" layoutY="222.0" prefWidth="340.0" style="-fx-background-color: 0; -fx-text-inner-color: WHITE;" text="Phần thưởng dịp đặc biệt">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="-5.0" prefHeight="66.0" prefWidth="1191.0" style="-fx-background-color: #0047AB;">
+         <children>
+            <ImageView fx:id="hoKhauBackIcon" fitHeight="50.0" fitWidth="153.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/back_blue.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="375.0" layoutY="12.0" text="Thống kê phần thưởng" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="tenDipPane" layoutX="581.0" layoutY="418.0" prefHeight="282.0" prefWidth="377.0" />
+   </children>
+</Pane>

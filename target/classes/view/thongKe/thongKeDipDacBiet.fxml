@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="dipDacBietMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeDipDacBietController">
+    <children>
+        <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
+            <children>
+                <ImageView fx:id="backImageView" fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/back_blue.png" />
+                    </image>
+                </ImageView>
+            <Label fx:id="titleLabel" layoutX="445.0" layoutY="10.0" prefHeight="45.0" prefWidth="329.0" text="Thống kê dịp đặc biệt" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+      <TableView fx:id="bangDB" layoutX="93.0" layoutY="236.0" onMouseClicked="#xemThongKe" prefHeight="429.0" prefWidth="416.0">
+         <columns>
+            <TableColumn fx:id="idDip" editable="false" prefWidth="61.0" sortable="false" style="-fx-alignment: CENTER;" text="ID Dịp" />
+            <TableColumn fx:id="nam" editable="false" prefWidth="97.0" sortType="DESCENDING" style="-fx-alignment: CENTER;" text="Năm" />
+            <TableColumn fx:id="tenDip" editable="false" prefWidth="161.0" sortType="DESCENDING" style="-fx-alignment: CENTER;" text="Tên dịp" />
+            <TableColumn fx:id="moTa" editable="false" prefWidth="97.0" sortType="DESCENDING" style="-fx-alignment: CENTER;" text="Mô tả" />
+         </columns>
+      </TableView>
+      <Label fx:id="namHocLabel" layoutX="93.0" layoutY="145.0" text="Năm học" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="cacDipTraoThuongLabel" layoutX="93.0" layoutY="197.0" text="Các dịp đặc biệt " textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="yearComboBox" layoutX="178.0" layoutY="143.0" onAction="#yearComboBoxOnAction" prefWidth="150.0" style="-fx-background-color: white;" />
+      <Label fx:id="soHoDaTraoLabel" layoutX="583.0" layoutY="168.0" text="Đã trao" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="soHoChuaTraoLabel" layoutX="590.0" layoutY="420.0" text="Chưa trao" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="hoDaTraoTableView" layoutX="590.0" layoutY="203.0" onMouseClicked="#hoDaTraoMouseClicked" prefHeight="200.0" prefWidth="446.0" style="-fx-background-color: white;">
+        <columns>
+          <TableColumn fx:id="idHo" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="ID Hộ" />
+          <TableColumn fx:id="soThanhVienDuocTraoThuong" editable="false" prefWidth="188.39996337890625" style="-fx-alignment: CENTER;" text="Số thành viên được trao thưởng" />
+            <TableColumn fx:id="tongSoTienDuocTraoThuong" editable="false" prefWidth="181.4000244140625" style="-fx-alignment: CENTER;" text="Tổng số tiền được trao thưởng" />
+        </columns>
+      </TableView>
+      <TableView fx:id="hoChuaTraoTableView" layoutX="590.0" layoutY="450.0" onMouseClicked="#hoChuaTraoMouseClicked" prefHeight="200.0" prefWidth="446.0" style="-fx-background-color: white;">
+         <columns>
+            <TableColumn fx:id="idHo_ChuaTrao" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="ID Hộ" />
+            <TableColumn fx:id="soThanhVienChuaTraoThuong" editable="false" prefWidth="188.39996337890625" style="-fx-alignment: CENTER;" text="Số thành viên chưa trao thưởng" />
+            <TableColumn fx:id="tongSoTienCanTraoThuong" editable="false" prefWidth="192.20001220703125" style="-fx-alignment: CENTER;" text="Tổng số tiền cần trao thưởng" />
+         </columns>
+      </TableView>
+      <TableView fx:id="chiTietTraoThuongTableView" layoutX="82.0" layoutY="110.0" prefHeight="514.0" prefWidth="1006.0" style="-fx-background-color: white;">
+         <columns>
+            <TableColumn fx:id="idNhanKhau" editable="false" prefWidth="148.60000610351562" style="-fx-alignment: CENTER;" text="ID Nhân Khẩu" />
+            <TableColumn fx:id="tenNhanKhau" editable="false" prefWidth="230.99998474121094" style="-fx-alignment: CENTER;" text="Tên nhân khẩu" />
+            <TableColumn fx:id="doTuoi" editable="false" prefWidth="196.20001220703125" style="-fx-alignment: CENTER;" text="Tuổi" />
+            <TableColumn fx:id="phanQua" editable="false" prefWidth="217.20001220703125" style="-fx-alignment: CENTER;" text="Phần quà" />
+            <TableColumn fx:id="soTien" editable="false" prefWidth="210.79998779296875" style="-fx-alignment: CENTER;" text="Số tiền tương ứng" />
+         </columns>
+      </TableView>
+      <Button fx:id="chiTietBackButton" layoutX="535.0" layoutY="625.0" mnemonicParsing="false" onAction="#chiTietBackButtonOnAction" style="-fx-background-color: white;" text="BACK">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+    </children>
+</Pane>
