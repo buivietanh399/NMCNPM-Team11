@@ -16,16 +16,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 import entity.LichSuHoatDong;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -83,6 +80,8 @@ public class NhanKhauController implements Initializable {
     public static int id_khaituNk;
     public static int id_tamtruNk;
     public static int id_tamvangNk;
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
 
     @FXML
@@ -236,13 +235,13 @@ public class NhanKhauController implements Initializable {
         stage.setScene(scene);
         stage.show();
 
-        //thêm vào lịch sử HD
+        //thêm LSHD
         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
         lichSuHoatDong.setIdHD(selected.getId());
         lichSuHoatDong.setTenHD("Xem chi tiết nhân khẩu");
         lichSuHoatDong.setNoiDungHD("");
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
-        History.lishSuHD_NhanKhau.add(0,lichSuHoatDong);
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDongRepository.addNK(lichSuHoatDong);
 
     }
 
@@ -327,7 +326,8 @@ public class NhanKhauController implements Initializable {
                     lichSuHoatDong.setTenHD("Xóa nhân khẩu");
                     lichSuHoatDong.setIdHD(userlist.getId());
                     lichSuHoatDong.setNoiDungHD("");
-                    History.lishSuHD_NhanKhau.add(0,lichSuHoatDong);
+                    lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+                    lichSuHoatDongRepository.addNK(lichSuHoatDong);
 
 
                 } else if (option.get() == ButtonType.CANCEL) {

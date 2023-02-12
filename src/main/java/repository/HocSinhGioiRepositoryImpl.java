@@ -17,6 +17,19 @@ public class HocSinhGioiRepositoryImpl implements HocSinhGioiRepository{
     private CallableStatement cstmt = null;
     private Connection conn = null;
 
+    //tìm số dịp hiện tại
+    @SneakyThrows
+    @Override
+    public  int idMax(){
+        int id_Max = 0;
+        conn = DbUtil.getInstance().getConnection();
+        pstmt = conn.prepareStatement(SQLCommand.LICH_SU_HOC_SINH_GIOI_QUERY_MAX_ID);
+        rs = pstmt.executeQuery();
+        while (rs.next()) id_Max = rs.getInt(1);
+        return id_Max;
+
+    }
+
     @SneakyThrows
     @Override
     public ObservableList<DipHocSinhGioi> bangDipHocSinhGioi() {

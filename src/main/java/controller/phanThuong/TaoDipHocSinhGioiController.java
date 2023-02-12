@@ -1,5 +1,6 @@
 package controller.phanThuong;
 
+import entity.LichSuHoatDong;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,9 +13,13 @@ import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import repository.HocSinhGioiRepositoryImpl;
 import repository.HocSinhGioiRepository;
-import utility.Message;
-import utility.Utility;
+import repository.LichSuHoatDongRepositoryImpl;
+import utility.*;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class TaoDipHocSinhGioiController {
@@ -38,6 +43,8 @@ public class TaoDipHocSinhGioiController {
 
 
     private HocSinhGioiRepository hocSinhGioiImpl = new HocSinhGioiRepositoryImpl();
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
     @SneakyThrows
     public void xacNhanClick(MouseEvent mouseEvent) {
@@ -68,6 +75,8 @@ public class TaoDipHocSinhGioiController {
                     alert.setHeaderText(Message.xacNhanThemMoiDip);
                     Optional<ButtonType> result =  alert.showAndWait();
                     if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+
+
                         hocSinhGioiImpl.taoDipHocSinhGioi(Integer.parseInt(namHoc.getText()), moTa.getText(), phanThuongDacBiet.getText(), phanThuongGioi.getText(), phanThuongKha.getText(),
                                 Float.parseFloat(tienDacBiet.getText()), Float.parseFloat(tienGioi.getText()), Float.parseFloat(tienKha.getText()));
                         Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
@@ -78,6 +87,15 @@ public class TaoDipHocSinhGioiController {
                         ChiTietHocSinhGioiController c = loader.getController();
                         c.setDipHocSinhGioi(hocSinhGioiImpl.traCuuDipByNam(Integer.parseInt(namHoc.getText())));
                         Stage newStage = Utility.setStage(p);
+
+                        //thêm LSHD
+                        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                        lichSuHoatDong.setTenHD("Tạo dịp trao thưởng HSG ");
+                        lichSuHoatDong.setIdHD(hocSinhGioiImpl.idMax()) ;//+1
+                        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+                        lichSuHoatDong.setNoiDungHD("");
+                        lichSuHoatDongRepository.addHSG(lichSuHoatDong);
+
                     }
                 }
             }

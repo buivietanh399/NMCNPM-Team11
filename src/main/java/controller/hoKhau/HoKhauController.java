@@ -16,11 +16,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import repository.HoKhauRepository;
 import repository.HoKhauRepositoryImpl;
-import utility.DbUtil;
-import utility.History;
-import view.Main;
+import repository.LichSuHoatDongRepositoryImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -79,6 +76,8 @@ public class HoKhauController implements Initializable {
     //repo:
     static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
 
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
     //checked//
     public void add(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -107,6 +106,14 @@ public class HoKhauController implements Initializable {
             m.show();
             return;
         }
+        //thêm LSHD
+        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+        lichSuHoatDong.setTenHD("Xem lịch sử chuyển đi hộ khẩu");
+        lichSuHoatDong.setNoiDungHD("");
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDongRepository.addHK(lichSuHoatDong);
+
+
         controller.lich_su_chuyen_di(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
@@ -116,12 +123,7 @@ public class HoKhauController implements Initializable {
         stage.setScene(scene);
         stage.show();
 
-        //thêm LSHD
-        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-        lichSuHoatDong.setTenHD("Xem lịch sử chuyển đi hộ khẩu");
-        lichSuHoatDong.setNoiDungHD("");
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
-        History.lishSuHD_HoKhau.add(0, lichSuHoatDong);
+
 
     }
 
@@ -156,7 +158,7 @@ public class HoKhauController implements Initializable {
 
             //thêm LSHD
             LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-            lichSuHoatDong.setThoiGianHD(LocalDate.now());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
             lichSuHoatDong.setTenHD("Xóa hộ khẩu");
             lichSuHoatDong.setIdHD(hk.getIdHoKhau());
             String noiDung = "Xóa hộ khẩu với ID chủ hộ " + Integer.toString(hk.getIdChuHo() ) + " và các ID thành viên nhân khẩu :\n";
@@ -166,7 +168,7 @@ public class HoKhauController implements Initializable {
                 noiDung+= Integer.toString(x.getIdNhanKhau()) + " - " + x.getQuanHeChuHo() +", ";
             }
             lichSuHoatDong.setNoiDungHD(noiDung);
-            History.lishSuHD_HoKhau.add(lichSuHoatDong);
+            lichSuHoatDongRepository.addHK(lichSuHoatDong);
 
 
 
@@ -227,8 +229,8 @@ public class HoKhauController implements Initializable {
         lichSuHoatDong.setTenHD("Xem chi tiết hộ khẩu");
         lichSuHoatDong.setIdHD(hk.getIdHoKhau());
         lichSuHoatDong.setNoiDungHD("");
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
-        History.lishSuHD_HoKhau.add(0, lichSuHoatDong);
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDongRepository.addHK(lichSuHoatDong);
     }
 
     //checked//

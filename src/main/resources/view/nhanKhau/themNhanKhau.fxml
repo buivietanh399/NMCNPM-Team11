@@ -6,7 +6,7 @@
 
 <ScrollPane prefHeight="701.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.ThemNhanKhauController">
    <content>
-      <AnchorPane prefHeight="687.0" prefWidth="1078.0" style="-fx-background-color: #2F333D;">
+      <AnchorPane prefHeight="687.0" prefWidth="1078.0" style="-fx-background-color: #0047AB;">
          <children>
             <TextField fx:id="hoTenF" layoutX="150.0" layoutY="103.0" prefHeight="37.0" prefWidth="309.0">
                <font>

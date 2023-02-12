@@ -529,6 +529,37 @@ public class SQLCommand {
     //3.4 Cho chỉnh sửa dịp HSG
     public static String LICH_SU_HOC_SINH_GIOI_QUERY_CAC_TRUONG_THEO_ID= "SELECT * from dip_hoc_sinh_gioi Where idDip = ?";
 
+    //3.5 Cho tạo dịp HSG
+
+    public static String LICH_SU_HOC_SINH_GIOI_QUERY_MAX_ID= "SELECT max(idDip) from dip_hoc_sinh_gioi ";
+
+    //3.5 Cho tạo dịp DB
+
+    public static String LICH_SU_DAC_BIET_QUERY_MAX_ID= "SELECT max(idDip) from dip_dac_biet ";
+
+    //3.6 Cho chỉnh sửa dịp ĐB
+
+    public static String LICH_SU_DAC_BIET_QUERY_CAC_TRUONG_THEO_ID= "SELECT * from dip_dac_biet Where idDip = ?";
+
+
+    // id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    //                       nhom INT NOT NULL,
+    //                       idHD1 INT ,
+    //                       idHD2 INT ,
+    //                       idHD3 INT ,
+    //                       idHD4 INT ,
+    //                       noidungHD VARCHAR(255),
+    //                       tenHD VARCHAR(255) ,
+    //3.7 Cho add LSHD
+    public static String LICH_SU_ADD_NHAN_KHAU = "INSERT INTO lich_su_hoat_dong(nhom, idHD1, tenHD ,noidungHD, thoiGianHD ) VALUES (1, ?, ?, ?,?)";
+    public static String LICH_SU_ADD_HO_KHAU = "INSERT INTO lich_su_hoat_dong(nhom, idHD2, tenHD ,noidungHD, thoiGianHD ) VALUES (2, ?, ?, ?,?)";
+    public static String LICH_SU_ADD_HSG = "INSERT INTO lich_su_hoat_dong(nhom, idHD3, tenHD ,noidungHD , thoiGianHD) VALUES (3, ?, ?, ?, ?)";
+    public static String LICH_SU_ADD_DB = "INSERT INTO lich_su_hoat_dong(nhom, idHD4, tenHD ,noidungHD , thoiGianHD) VALUES (4, ?, ?, ?, ?)";
+
+
+    //3.8 Lấy LSHD theo nhóm
+    public static String LICH_SU_QUERY= "Select * from lich_su_hoat_dong where nhom = ?";
+
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

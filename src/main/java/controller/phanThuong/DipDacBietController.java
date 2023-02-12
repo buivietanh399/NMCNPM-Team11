@@ -1,6 +1,7 @@
 package controller.phanThuong;
 
 import entity.DipDacBiet;
+import entity.LichSuHoatDong;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,11 +21,14 @@ import javafx.util.Callback;
 import lombok.SneakyThrows;
 import repository.DipDacBietRepository;
 import repository.DipDacBietRepositoryImpl;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.Message;
 import utility.Utility;
 import utility.Variable;
 
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -57,6 +61,10 @@ public class DipDacBietController implements Initializable {
     DipDacBietRepository dipDacBietImpl = new DipDacBietRepositoryImpl();
     ObservableList<DipDacBiet> danhSachDip = FXCollections.observableArrayList();
 
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
+
+    public  static int id_suaDB;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ddbIDCol.setCellValueFactory(new PropertyValueFactory<>("idDip"));
@@ -171,6 +179,14 @@ public class DipDacBietController implements Initializable {
         stage.setOnHidden(windowEvent -> {
             ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
         });
+        //thêm LSHD
+        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+        lichSuHoatDong.setTenHD("Xem chi tiểt dịp trao thưởng ");
+        lichSuHoatDong.setIdHD(dip.getIdDip());
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDong.setNoiDungHD("");
+        lichSuHoatDongRepository.addDB(lichSuHoatDong);
+
     }
 
     public void xoaDip(ActionEvent actionEvent) {
@@ -187,6 +203,14 @@ public class DipDacBietController implements Initializable {
             Alert newAleart = new Alert(Alert.AlertType.INFORMATION);
             newAleart.setHeaderText(Message.thongBaoXoaDip);
             newAleart.show();
+
+            //thêm LSHD
+            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+            lichSuHoatDong.setTenHD("Xóa dịp trao thưởng ");
+            lichSuHoatDong.setIdHD(dipDacBiet.getIdDip());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+            lichSuHoatDong.setNoiDungHD("");
+            lichSuHoatDongRepository.addDB(lichSuHoatDong);
         }
     }
 
@@ -201,10 +225,20 @@ public class DipDacBietController implements Initializable {
         stage.setOnHidden(windowEvent -> {
             ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
         });
+
+        //thêm LSHD
+        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+        lichSuHoatDong.setTenHD("Xem danh sách nhận thưởng  ");
+        lichSuHoatDong.setIdHD(dip.getIdDip());
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDong.setNoiDungHD("");
+        lichSuHoatDongRepository.addDB(lichSuHoatDong);
+
     }
 
     @SneakyThrows
     public void chinhSuaThongTin(ActionEvent actionEvent) {
+
         DipDacBiet dipDacBiet = ddbTable.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/phanThuong/chinhSuaDipDacBiet.fxml"));
@@ -215,5 +249,7 @@ public class DipDacBietController implements Initializable {
         stage.setOnHidden(windowEvent -> {
             ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
         });
+
+        id_suaDB = dipDacBiet.getIdDip();
     }
 }

@@ -1,6 +1,5 @@
 package controller.hoKhau;
 
-import entity.HoKhau;
 import entity.HoKhauNhanKhau;
 import entity.LichSuHoatDong;
 import entity.NhanKhau;
@@ -14,14 +13,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import repository.HoKhauRepositoryImpl;
-import utility.DbUtil;
-import utility.History;
+import repository.LichSuHoatDongRepositoryImpl;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ThemHoKhauController implements Initializable {
@@ -92,6 +89,7 @@ public class ThemHoKhauController implements Initializable {
     //Repo:
 
     static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
     public int getId_chu_ho() {
         return id_chu_ho;
@@ -203,20 +201,22 @@ public class ThemHoKhauController implements Initializable {
         update_ch_after_add(idHoKhau);
         update_chuyen_ho_khau(idHoKhau);
 
-        //thêm LSHD
 
-        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-        lichSuHoatDong.setTenHD("Thêm hộ khẩu ");
-        lichSuHoatDong.setIdHD(idHoKhau + 1);
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
-        lichSuHoatDong.setNoiDungHD("");
-        History.lishSuHD_HoKhau.add(lichSuHoatDong);
 
 
         Alert m = new Alert(Alert.AlertType.INFORMATION);
         m.setTitle("Thông báo!");
         m.setHeaderText("Thêm hộ khẩu mới thành công");
         m.show();
+
+        //thêm LSHD
+
+        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+        lichSuHoatDong.setTenHD("Thêm hộ khẩu ");
+        lichSuHoatDong.setIdHD(idHoKhau );//+1
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDong.setNoiDungHD("");
+        lichSuHoatDongRepository.addHK(lichSuHoatDong);
 
         huy_button(e);
     }

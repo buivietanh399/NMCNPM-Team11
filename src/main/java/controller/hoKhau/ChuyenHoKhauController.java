@@ -1,13 +1,14 @@
 package controller.hoKhau;
 
 import entity.HoKhau;
+import entity.LichSuHoatDong;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import repository.HoKhauRepositoryImpl;
-import utility.DbUtil;
+import repository.LichSuHoatDongRepositoryImpl;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -71,6 +72,8 @@ public class ChuyenHoKhauController {
 
     //Repo:
     static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
     public String getNgay_chuyen_den() {
         return ngay_chuyen_den;
@@ -158,6 +161,16 @@ public class ChuyenHoKhauController {
             m.show();
             return;
         }
+        //thêm LSHD
+
+        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+        lichSuHoatDong.setTenHD("Chuyển hộ khẩu ");
+        lichSuHoatDong.setIdHD(HoKhauController.id_chuyenHK);
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        String noiDung = "Địa điểm chuyển tới: " + dia_chi_chuyen_den_cd.getText() + "\nNgày chuyển: " + ngay_chuyen_den;
+        lichSuHoatDong.setNoiDungHD("");
+        lichSuHoatDongRepository.addHK(lichSuHoatDong);
+
 
         update_trangthai_hokhau();
         update_trangthai_chuho();

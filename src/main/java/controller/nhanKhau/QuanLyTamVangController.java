@@ -9,14 +9,11 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -46,6 +43,8 @@ public class QuanLyTamVangController implements Initializable {
     NhanKhau nhanKhau = null;
     private boolean update;
     int nhanKhauId;
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
     public void setTamVang(NhanKhau nk){
         ngaySinhLabel.setText(nk.getBieuDienNgaySinh());
@@ -88,8 +87,8 @@ public class QuanLyTamVangController implements Initializable {
                 String noiDung = "Nơi tạm trú : " + noiTamTru
                                  + "\nTừ ngày: " + tuNgay.toString();
                 lichSuHoatDong.setNoiDungHD(noiDung);
-                lichSuHoatDong.setThoiGianHD(LocalDate.now());
-                History.lishSuHD_NhanKhau.add(0,lichSuHoatDong);
+                lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+                lichSuHoatDongRepository.addNK(lichSuHoatDong);
 
 
 

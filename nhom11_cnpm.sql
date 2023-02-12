@@ -299,15 +299,15 @@ CREATE TABLE chi_tiet_dip_hoc_sinh_gioi(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO chi_tiet_dip_hoc_sinh_gioi(idDip, idNhanKhau, truong, lop, nhom, minhChung, kiemtra) VALUES
-                                                                                                     (1, 1, N'Trường THCS Chu Văn An', 6, 1, 'MC', 1),
-                                                                                                     (1, 2, N'Trường tiểu học Chu Văn An', 1, 1, 'MC', 1),
-                                                                                                     (2, 1, N'Trường THCS Chu Văn An', 7, 2, 'MC', 1),
-                                                                                                     (2, 26, N'Trường THPT Chu Văn An', 12, 1, 'MC', 0),
-                                                                                                     (2, 25, N'Trường THCS Ái Mộ', 7, 3, 'MC', 0),
-                                                                                                     (2, 27, N'Tiểu học Ngọc Thụy', 12, 1, 'MC', 1),
-                                                                                                     (3, 25, N'Trường THCS Ái Mộ', 8, 1, 'MC', 0),
-                                                                                                     (3, 26, N'Trường THPT Chu Văn An', 12, 1, 'MC', 0),
-                                                                                                     (4, 25, N'Trường THCS Ái Mộ', 9, 1, 'MC', 0);
+                                                                                                     (1, 1, N'Trường THCS Chu Văn An', 6, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 1),
+                                                                                                     (1, 2, N'Trường tiểu học Chu Văn An', 1, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 1),
+                                                                                                     (2, 1, N'Trường THCS Chu Văn An', 7, 2, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 1),
+                                                                                                     (2, 26, N'Trường THPT Chu Văn An', 12, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 0),
+                                                                                                     (2, 25, N'Trường THCS Ái Mộ', 7, 3, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 0),
+                                                                                                     (2, 27, N'Tiểu học Ngọc Thụy', 12, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 1),
+                                                                                                     (3, 25, N'Trường THCS Ái Mộ', 8, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 0),
+                                                                                                     (3, 26, N'Trường THPT Chu Văn An', 12, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 0),
+                                                                                                     (4, 25, N'Trường THCS Ái Mộ', 9, 1, 'https://inhanoi.net/wp-content/uploads/2020/05/dich-vu-in-giay-khen-dep-chat-luong.jpg', 0);
 
 -- 13. Khai tử
 CREATE TABLE khai_tu(
@@ -324,3 +324,40 @@ CREATE TABLE khai_tu(
 
 INSERT INTO khai_tu(idNguoiMat, idNguoiKhai, ngayKhai, ngayMat, liDoMat) VALUES
     (12, 5, '2020-10-10', '2020-10-1', 'Bệnh tim');
+
+
+-- 14. Lịch sử hoạt động, idHD: id của đối tượng
+CREATE TABLE lich_su_hoat_dong(
+                       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                       nhom INT NOT NULL,
+                       idHD1 INT ,
+                       idHD2 INT ,
+                       idHD3 INT ,
+                       idHD4 INT ,
+                       noiDungHD VARCHAR(255),
+                       tenHD VARCHAR(255) ,
+                       thoiGianHD date not null,
+                       CONSTRAINT FK_nhankhau FOREIGN KEY(idHD1) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE,
+                       CONSTRAINT FK_hokhau FOREIGN KEY(idHD2) REFERENCES ho_khau(idHoKhau) ON DELETE CASCADE,
+                       CONSTRAINT FK_HSG FOREIGN KEY(idHD3) REFERENCES dip_hoc_sinh_gioi(idDip) ON DELETE CASCADE,
+                       CONSTRAINT FK_DB FOREIGN KEY(idHD4) REFERENCES dip_dac_biet(idDip) ON DELETE CASCADE
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- 15.Gioi han LSHD
+DELIMITER $$
+CREATE TRIGGER tr_limit_table_rows
+BEFORE INSERT ON lich_su_hoat_dong
+FOR EACH ROW
+BEGIN
+  DECLARE row_count INT;
+
+  SELECT COUNT(*) INTO row_count
+  FROM lich_su_hoat_dong;
+
+  IF row_count >= 1000 THEN
+    DELETE FROM lich_su_hoat_dong
+    ORDER BY id LIMIT 1;
+  END IF;
+END$$
+DELIMITER ;

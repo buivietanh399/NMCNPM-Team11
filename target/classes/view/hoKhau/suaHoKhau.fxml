@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="637.0" prefWidth="1253.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
+<AnchorPane prefHeight="637.0" prefWidth="1253.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
    <children>
       <Label layoutX="66.0" layoutY="119.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
          <font>

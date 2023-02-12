@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Setter
@@ -12,12 +13,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LichSuHoatDong {
+    private int nhom = 0;
     private String tenHD;
 
     private int idHD;
 
     private String noiDungHD;
 
-    private LocalDate thoiGianHD;
+    private Date thoiGianHD;
 
 }

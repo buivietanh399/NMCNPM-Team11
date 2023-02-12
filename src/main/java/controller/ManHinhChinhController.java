@@ -72,6 +72,7 @@ public class ManHinhChinhController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         Pane trangChuPane =  FXMLLoader.load(Main.class.getResource("trangChu.fxml"));
         mainPane.getChildren().add(trangChuPane);
     }

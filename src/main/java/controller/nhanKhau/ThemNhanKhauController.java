@@ -15,14 +15,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -74,6 +71,9 @@ public class ThemNhanKhauController implements Initializable {
     private boolean update;
     int nhanKhauId;
     String gioiTinhC=null;
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
 
     /**
      * Initializes the controller class.
@@ -128,16 +128,6 @@ public class ThemNhanKhauController implements Initializable {
             while (resultSet.next()){
                 next_id = resultSet.getInt(1) + 1;
             }
-
-            //thêm LSHD
-            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-            lichSuHoatDong.setTenHD("Thêm nhân khẩu");
-            lichSuHoatDong.setIdHD(next_id);
-            lichSuHoatDong.setNoiDungHD("");
-            lichSuHoatDong.setThoiGianHD(LocalDate.now());
-            History.lishSuHD_NhanKhau.add(0,lichSuHoatDong);
-
-
             insert();
             Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
             alert_TC.setHeaderText(null);
@@ -147,6 +137,18 @@ public class ThemNhanKhauController implements Initializable {
             final Node source = (Node) event.getSource();
             final Stage stage = (Stage) source.getScene().getWindow();
             stage.close();
+
+            //thêm LSHD
+            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+            lichSuHoatDong.setTenHD("Thêm nhân khẩu");
+            lichSuHoatDong.setIdHD(next_id);
+            lichSuHoatDong.setNoiDungHD("");
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+            lichSuHoatDongRepository.addNK(lichSuHoatDong);
+
+
+
+
 
         }
 

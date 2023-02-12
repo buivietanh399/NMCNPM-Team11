@@ -17,6 +17,18 @@ public class DipDacBietRepositoryImpl implements DipDacBietRepository{
     private CallableStatement cstmt = null;
     private Connection conn = null;
 
+    //tìm id max dịp dac biệt hiện có
+    @SneakyThrows
+    @Override
+    public  int idMax(){
+        int id_Max = 0;
+        conn = DbUtil.getInstance().getConnection();
+        pstmt = conn.prepareStatement(SQLCommand.LICH_SU_DAC_BIET_QUERY_MAX_ID);
+        rs = pstmt.executeQuery();
+        while (rs.next()) id_Max = rs.getInt(1);
+        return id_Max;
+    }
+
     @SneakyThrows
     @Override
     public ObservableList<DipDacBiet> bangDipDacBiet() {

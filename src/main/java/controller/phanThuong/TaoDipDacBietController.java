@@ -1,5 +1,6 @@
 package controller.phanThuong;
 
+import entity.LichSuHoatDong;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,10 +12,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import repository.DipDacBietRepository;
 import repository.DipDacBietRepositoryImpl;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.Message;
 import utility.Utility;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class TaoDipDacBietController {
@@ -40,6 +44,9 @@ public class TaoDipDacBietController {
 
     private DipDacBietRepository dipDacBietImpl = new DipDacBietRepositoryImpl();
 
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
+
     public void xacNhanClick(MouseEvent mouseEvent) {
         if (nam.getText().isEmpty() || tenDip.getText().isEmpty() || phanThuong05.getText().isEmpty() || phanThuong614.getText().isEmpty() || phanThuong1517.getText().isEmpty() || tien05.getText().isEmpty() || tien614.getText().isEmpty() || tien1517.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -58,7 +65,7 @@ public class TaoDipDacBietController {
                     alert.setHeaderText(Message.yeuCauDoiTenDip + nam.getText());
                     alert.show();
                 }
-                else if (Integer.parseInt(tien05.getText()) <= Integer.parseInt(tien614.getText()) || Integer.parseInt(tien614.getText()) <= Integer.parseInt(tien1517.getText())) {
+                else if (Float.parseFloat(tien05.getText()) <= Float.parseFloat(tien614.getText()) || Float.parseFloat(tien614.getText()) <= Float.parseFloat(tien1517.getText())) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(Message.yeuCauDoiTienThuong);
                     alert.show();
@@ -68,6 +75,9 @@ public class TaoDipDacBietController {
                     alert.setHeaderText(Message.xacNhanThemMoiDip);
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.isPresent() && result.get() == ButtonType.OK) {
+
+
+
                         dipDacBietImpl.taoDipDacBiet(tenDip.getText(), Integer.parseInt(nam.getText()), moTa.getText(), phanThuong05.getText(), phanThuong614.getText(), phanThuong1517.getText(), Float.parseFloat(tien05.getText()),Float.parseFloat(tien614.getText()) , Float.parseFloat(tien1517.getText()));
                         alert.close();
                         Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -87,6 +97,14 @@ public class TaoDipDacBietController {
                             }
                         });
                         newAlert.show();
+
+                        //thêm LSHD
+                        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                        lichSuHoatDong.setTenHD("Tạo dịp đặc biệt ");
+                        lichSuHoatDong.setIdHD(dipDacBietImpl.idMax());//+1
+                        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+                        lichSuHoatDong.setNoiDungHD("");
+                        lichSuHoatDongRepository.addDB(lichSuHoatDong);
                     }
                 }
             }

@@ -7,7 +7,7 @@
 
 <ScrollPane prefHeight="699.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.KhaiTuController">
    <content>
-      <AnchorPane prefHeight="687.0" prefWidth="1117.0" style="-fx-background-color: #2F333D;">
+      <AnchorPane prefHeight="687.0" prefWidth="1117.0" style="-fx-background-color: #0047AB;">
          <children>
             <DatePicker fx:id="ngayMatF" layoutX="239.0" layoutY="141.0" prefHeight="37.0" prefWidth="217.0" />
             <Label fx:id="hoTenLabel" layoutX="238.0" layoutY="84.0" prefHeight="30.0" prefWidth="358.0" text="Label" textFill="WHITE">

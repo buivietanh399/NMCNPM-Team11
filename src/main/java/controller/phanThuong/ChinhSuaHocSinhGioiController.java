@@ -1,6 +1,5 @@
 package controller.phanThuong;
 
-import controller.nhanKhau.NhanKhauController;
 import controller.nhanKhau.ThongTinNhanKhauController;
 import entity.DipHocSinhGioi;
 import entity.LichSuHoatDong;
@@ -17,22 +16,18 @@ import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import repository.HocSinhGioiRepositoryImpl;
 import repository.HocSinhGioiRepository;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 import utility.Message;
 import utility.Utility;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static utility.SQLCommand.LICH_SU_HOC_SINH_GIOI_QUERY_CAC_TRUONG_THEO_ID;
-import static utility.SQLCommand.LICH_SU_NHAN_KHAU_QUERY_CAC_TRUONG_THEO_ID;
 
 public class ChinhSuaHocSinhGioiController {
 
@@ -57,6 +52,9 @@ public class ChinhSuaHocSinhGioiController {
 
     private DipHocSinhGioi dipHocSinhGioi = new DipHocSinhGioi();
     private HocSinhGioiRepository hocSinhGioiImpl = new HocSinhGioiRepositoryImpl();
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
 
     Connection connection = null;
     ResultSet resultSet = null;
@@ -99,28 +97,10 @@ public class ChinhSuaHocSinhGioiController {
                 alert.setHeaderText(Message.xacNhanThayDoiThongTinDip);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ButtonType.OK) {
-                    dipHocSinhGioi.setPhanQuaDacBiet(phanThuongDacBiet.getText());
-                    dipHocSinhGioi.setPhanQuaGioi(phanThuongGioi.getText());
-                    dipHocSinhGioi.setPhanQuaKha(phanThuongKha.getText());
-                    dipHocSinhGioi.setTienDacBiet(Float.parseFloat(tienDacBiet.getText()));
-                    dipHocSinhGioi.setTienGioi(Float.parseFloat(tienGioi.getText()));
-                    dipHocSinhGioi.setTienKha(Float.parseFloat(tienKha.getText()));
-                    dipHocSinhGioi.setMoTa(moTa.getText());
-                    hocSinhGioiImpl.chinhSuaThongTinDip(dipHocSinhGioi.getIdDip(), moTa.getText(),phanThuongDacBiet.getText() , phanThuongGioi.getText(),
-                            phanThuongKha.getText(), Float.parseFloat(tienDacBiet.getText()), Float.parseFloat(tienGioi.getText()), Float.parseFloat(tienKha.getText()));
-                    Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-                    stage.close();
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/view/phanThuong/chiTietHocSinhGioi.fxml"));
-                    Parent p = loader.load();
-                    ChiTietHocSinhGioiController c = loader.getController();
-                    c.setDipHocSinhGioi(dipHocSinhGioi);
-                    Utility.setStage(p);
-
                     //thêm LSHD
                     LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
                     lichSuHoatDong.setTenHD("Chỉnh sửa dịp HSG");
-                    lichSuHoatDong.setThoiGianHD(LocalDate.now());
+                    lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));;
                     lichSuHoatDong.setIdHD(HocSinhGioiController.id_suaHSG);
                     String noiDung = "Chỉnh sửa: ";
                     try {
@@ -185,7 +165,7 @@ public class ChinhSuaHocSinhGioiController {
                             }
 
                             //7 Mô tả
-                            if (resultSet.getString("moTa").compareTo(moTa.getText()) != 0) {
+                            if (moTa.getText() != null && moTa.getText() != "") {
                                 noiDung += "\nMô tả: "
                                         + resultSet.getString("moTa") + " => " + moTa.getText();
                             }
@@ -193,7 +173,27 @@ public class ChinhSuaHocSinhGioiController {
                         }
 
                         lichSuHoatDong.setNoiDungHD(noiDung);
-                        History.lishSuHD_HocSinhGioi.add(0,lichSuHoatDong);
+                        lichSuHoatDongRepository.addHSG(lichSuHoatDong);
+
+                    dipHocSinhGioi.setPhanQuaDacBiet(phanThuongDacBiet.getText());
+                    dipHocSinhGioi.setPhanQuaGioi(phanThuongGioi.getText());
+                    dipHocSinhGioi.setPhanQuaKha(phanThuongKha.getText());
+                    dipHocSinhGioi.setTienDacBiet(Float.parseFloat(tienDacBiet.getText()));
+                    dipHocSinhGioi.setTienGioi(Float.parseFloat(tienGioi.getText()));
+                    dipHocSinhGioi.setTienKha(Float.parseFloat(tienKha.getText()));
+                    dipHocSinhGioi.setMoTa(moTa.getText());
+                    hocSinhGioiImpl.chinhSuaThongTinDip(dipHocSinhGioi.getIdDip(), moTa.getText(),phanThuongDacBiet.getText() , phanThuongGioi.getText(),
+                            phanThuongKha.getText(), Float.parseFloat(tienDacBiet.getText()), Float.parseFloat(tienGioi.getText()), Float.parseFloat(tienKha.getText()));
+                    Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+                    stage.close();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/view/phanThuong/chiTietHocSinhGioi.fxml"));
+                    Parent p = loader.load();
+                    ChiTietHocSinhGioiController c = loader.getController();
+                    c.setDipHocSinhGioi(dipHocSinhGioi);
+                    Utility.setStage(p);
+
+
 
                     }catch (SQLException ex) {
                         Logger.getLogger(ThongTinNhanKhauController.class.getName()).log(Level.SEVERE, null, ex);

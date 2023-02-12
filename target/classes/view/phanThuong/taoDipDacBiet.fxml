@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="692.0" prefWidth="1040.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.TaoDipDacBietController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="692.0" prefWidth="1040.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.TaoDipDacBietController">
       <children>
           <Label layoutX="284.0" layoutY="6.0" text="Tạo dịp trao thưởng đặc biệt" textFill="#f8f3f3">
               <font>

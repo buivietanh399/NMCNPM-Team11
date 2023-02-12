@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="994.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.DdbDanhSachNhanThuongController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="994.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.DdbDanhSachNhanThuongController">
       <children>
           <Label fx:id="tieuDe" layoutX="219.0" layoutY="14.0" text="Danh sách nhận khẩu nhận thưởng dịp " textFill="#f8f3f3">
               <font>

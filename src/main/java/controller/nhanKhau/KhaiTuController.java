@@ -14,14 +14,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -76,6 +73,8 @@ public class KhaiTuController implements Initializable {
     private int idNguoiKhaiBao=-1;
     @FXML
     ObservableList<NhanKhau>  nhanKhauList2 = FXCollections.observableArrayList();
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
     @FXML
      private void Select_KT(ActionEvent event) {
         truongTraCuu = truongTraCuuF.getSelectionModel().getSelectedItem().toString();
@@ -159,10 +158,10 @@ public class KhaiTuController implements Initializable {
             LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
             lichSuHoatDong.setIdHD(NhanKhauController.id_khaituNk);
             lichSuHoatDong.setTenHD("Khai tử");
-            lichSuHoatDong.setThoiGianHD(LocalDate.now());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
             String noiDung =  "IdNgười khai báo : " + Integer.toString(idNguoiKhaiBao);
             lichSuHoatDong.setNoiDungHD(noiDung);
-            History.lishSuHD_NhanKhau.add(0,lichSuHoatDong);
+            lichSuHoatDongRepository.addNK(lichSuHoatDong);
 
             insert();
             update();

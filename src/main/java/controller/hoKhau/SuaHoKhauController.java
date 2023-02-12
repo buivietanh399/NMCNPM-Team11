@@ -8,22 +8,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import repository.HoKhauRepositoryImpl;
-import utility.DbUtil;
-import utility.History;
+import repository.LichSuHoatDongRepositoryImpl;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -129,6 +124,7 @@ public class SuaHoKhauController implements Initializable {
 
     //Repo:
     static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
     //function:
     public void change_hk(HoKhau hk){
@@ -163,6 +159,13 @@ public class SuaHoKhauController implements Initializable {
         if ( xoa_NK != 0){
             delete_nhankhau(xoa_NK);
         }
+        //thêm LSHD
+        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+        lichSuHoatDong.setIdHD(HoKhauController.id_suaHK);
+        lichSuHoatDong.setTenHD("Chỉnh sửa hộ khẩu");
+        lichSuHoatDong.setNoiDungHD("Chỉnh sửa: " + thaydoiquanhe_NK_noidung + change_CH_noidung + xoa_NK_noidung + them_NK_noidung);
+        lichSuHoatDongRepository.addHK(lichSuHoatDong);
 
         Alert m = new Alert(Alert.AlertType.INFORMATION);
         m.setTitle("Thông báo!");
@@ -170,13 +173,7 @@ public class SuaHoKhauController implements Initializable {
         m.show();
 
 
-        //thêm LSHD
-        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
-        lichSuHoatDong.setIdHD(HoKhauController.id_suaHK);
-        lichSuHoatDong.setTenHD("Chỉnh sửa hộ khẩu");
-        lichSuHoatDong.setNoiDungHD("Chỉnh sửa: " + thaydoiquanhe_NK_noidung + change_CH_noidung + xoa_NK_noidung + them_NK_noidung);
-        History.lishSuHD_HoKhau.add(lichSuHoatDong);
+
 
         close_button(e);
     }

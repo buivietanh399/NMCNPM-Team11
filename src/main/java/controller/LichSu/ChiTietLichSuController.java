@@ -1,25 +1,25 @@
 package controller.LichSu;
 
-import entity.DipHocSinhGioi;
 import entity.LichSuHoatDong;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import controller.LichSu.LichSuController;
-import utility.History;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.SoundClick;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -44,6 +44,21 @@ public class ChiTietLichSuController implements Initializable {
     @FXML
     private TableColumn<LichSuHoatDong, LocalDate> thoiGianHD;
 
+    @FXML
+    private ComboBox<String> tenHDComboBox;
+
+    @FXML
+    private TextField idHDTextField;
+
+    @FXML
+    private DatePicker thoiGianHDDatePicker;
+
+    @FXML
+    private Button  allButton;
+
+
+
+
 
 
 
@@ -54,49 +69,61 @@ public class ChiTietLichSuController implements Initializable {
     @FXML
     private Pane mainPane;
 
+    @FXML
+    private Button locButton;
+
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
+    int option = LichSuController.option;
+
+    public  void setOption(int option){
+        lichSuHoatDongRepository.init();
+        tenHDComboBox.getItems().clear();
+        if(option == 1){
+            tenHDComboBox.getItems().addAll(LichSuHoatDongRepositoryImpl.listHD_NK);
+        }
+
+        else if(option == 2){
+            tenHDComboBox.getItems().addAll(LichSuHoatDongRepositoryImpl.listHD_HK);
+        }
+
+        else if(option == 3){
+            tenHDComboBox.getItems().addAll(LichSuHoatDongRepositoryImpl.listHD_HSG);
+        }
+
+        else {
+            tenHDComboBox.getItems().addAll(LichSuHoatDongRepositoryImpl.listHD_DB);
+
+        }
+        tenHDComboBox.setValue("Tất cả");
+
+    }
+
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        idHD.setCellValueFactory(new PropertyValueFactory<>("idHD"));
+
+        idHD.setCellValueFactory(new PropertyValueFactory<>("idHD" ));
         tenHD.setCellValueFactory(new PropertyValueFactory<>("tenHD"));
         noiDungHD.setCellValueFactory(new PropertyValueFactory<>("noiDungHD"));
         thoiGianHD.setCellValueFactory(new PropertyValueFactory<>("thoiGianHD"));
 
-        //1. ls Nhân khẩu
-        if(LichSuController.option == 1){
-            bangLSHD.getItems().clear();
-            ObservableList<LichSuHoatDong> lichSuHoatDongs = History.lishSuHD_NhanKhau;
-            bangLSHD.setItems(lichSuHoatDongs);
+        try {
+            bangLSHD.setItems(lichSuHoatDongRepository.bangLSHD(option) );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
-        //2. ls Hộ khẩu
+        if(option == 1) idHD.setText("ID nhân khẩu");
+        else if(option == 2) idHD.setText("ID hộ khẩu");
+        else if(option == 3) idHD.setText("ID dịp học sinh giỏi");
+        else idHD.setText("ID dịp đặc biệt");
 
-        else if ( LichSuController.option == 2){
-            bangLSHD.getItems().clear();
-            ObservableList<LichSuHoatDong> lichSuHoatDongs = History.lishSuHD_HoKhau;
-            bangLSHD.setItems(lichSuHoatDongs);
+        setOption(option);
 
-        }
-
-        //3. ls HSG
-
-        else if ( LichSuController.option == 3){
-            bangLSHD.getItems().clear();
-            ObservableList<LichSuHoatDong> lichSuHoatDongs = History.lishSuHD_HocSinhGioi;
-            bangLSHD.setItems(lichSuHoatDongs);
-
-        }
-
-        //4. ls DB
-
-        else {
-            bangLSHD.getItems().clear();
-            ObservableList<LichSuHoatDong> lichSuHoatDongs = History.lishSuHD_DipDacBiet;
-            bangLSHD.setItems(lichSuHoatDongs);
-
-        }
     }
 
     public void back(MouseEvent mouseEvent) throws IOException {
@@ -106,9 +133,73 @@ public class ChiTietLichSuController implements Initializable {
         mainPane.getChildren().add(lichSuPane);
     }
 
+    public  void  locButtonOnAction(ActionEvent event) throws SQLException{
+        bangLSHD.getItems().clear();
+        String tenHD = tenHDComboBox.getValue();
+        String idHD = idHDTextField.getText();
+        LocalDate d = thoiGianHDDatePicker.getValue();
+        String thoiGianHD = null;
+        if(d!=null) thoiGianHD = Date.valueOf(d).toString();
 
+        ObservableList<LichSuHoatDong> list = FXCollections.observableArrayList();
+        if( tenHD == "Tất cả"){
+            //cả 2 truong
+            if(  idHD.matches("-?\\d+(\\.\\d+)?") &&  thoiGianHD!=null){
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if (l.getIdHD() == Integer.parseInt(idHD) &&  l.getThoiGianHD().toString().compareTo(thoiGianHD) == 0 ) list.add(l);
+                }
+            }
+            //truong ID
+            else if( idHD.matches("-?\\d+(\\.\\d+)?")) {
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if (l.getIdHD() == Integer.parseInt(idHD)) list.add(l);
+                }
+            }
+            //truong TG
+            else if(thoiGianHD!=null) {
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if ( l.getThoiGianHD().toString().compareTo(thoiGianHD) == 0  ) list.add(l);
+                }
+            }
+            else list = lichSuHoatDongRepository.bangLSHD(option);
+            bangLSHD.setItems(list);
+        }
 
+        else {
+            //cả 2 truong
+            if(  idHD.matches("-?\\d+(\\.\\d+)?") && thoiGianHD!=null){
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if (l.getTenHD().toLowerCase().contains(tenHD.toLowerCase()) && l.getIdHD() == Integer.parseInt(idHD) &&  l.getThoiGianHD().toString().compareTo(thoiGianHD) == 0  ) list.add(l);
+                }
+            }
+            //truong ID
+            else if( idHD.matches("-?\\d+(\\.\\d+)?") ) {
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if (l.getTenHD().toLowerCase().contains(tenHD.toLowerCase()) && l.getIdHD() == Integer.parseInt(idHD)) list.add(l);
+                }
+            }
+            //truong TG
+            else if(thoiGianHD!=null) {
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if (l.getTenHD().toLowerCase().contains(tenHD.toLowerCase()) &&  l.getThoiGianHD().toString().compareTo(thoiGianHD) == 0  ) list.add(l);
+                }
+            }
+            else {
+                for (LichSuHoatDong l : lichSuHoatDongRepository.bangLSHD(option)) {
+                    if (l.getTenHD().toLowerCase().contains(tenHD.toLowerCase())) list.add(l);
+                }
+            }
+            bangLSHD.setItems(list);
+        }
+    }
 
+    public void allButtonOnAction(ActionEvent event) throws SQLException{
+        bangLSHD.getItems().clear();
+        tenHDComboBox.setValue("Tất cả");
+        idHDTextField.clear();
+        thoiGianHDDatePicker.setValue(null);
+        bangLSHD.setItems(lichSuHoatDongRepository.bangLSHD(option) );
+    }
 
 
 

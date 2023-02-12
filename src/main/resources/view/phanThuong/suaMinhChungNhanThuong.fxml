@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="927.0" prefWidth="1170.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.SuaMinhChungNhanThuongController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="927.0" prefWidth="1170.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.SuaMinhChungNhanThuongController">
       <children>
           <Label layoutX="310.0" layoutY="14.0" text="Minh chứng nhận thưởng học sinh giỏi" textFill="#f8f3f3">
               <font>
@@ -57,7 +57,7 @@
                           <Font size="20.0" />
                       </font>
                   </Label>
-                  <TextField fx:id="truongHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
+                  <TextField fx:id="truongHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: white;">
                       <font>
                           <Font size="16.0" />
                       </font>
@@ -71,7 +71,7 @@
                           <Font name="System Bold" size="20.0" />
                       </font>
                   </Label>
-                  <TextField fx:id="lopHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
+                  <TextField fx:id="lopHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: white;">
                       <font>
                           <Font size="16.0" />
                       </font>
@@ -95,7 +95,7 @@
                           <Font size="20.0" />
                       </font>
                   </Label>
-            <ChoiceBox fx:id="thanhTich" layoutX="168.0" prefWidth="150.0" style="-fx-font-size: 20; -fx-background-color: #FFFFC9;" />
+            <ChoiceBox fx:id="thanhTich" layoutX="168.0" prefWidth="150.0" style="-fx-font-size: 20; -fx-background-color: white;" />
               </children>
           </Pane>
           <Pane layoutX="56.0" layoutY="529.0" prefHeight="44.0" prefWidth="1068.0">
@@ -110,19 +110,19 @@
                           <Font size="20.0" />
                       </font>
                   </Label>
-                  <Button layoutX="169.0" layoutY="1.0" mnemonicParsing="false" onAction="#taiAnhMinhChung" style="-fx-background-color: #F1D4A7;" text="Cập nhật ảnh minh chứng">
+                  <Button layoutX="169.0" layoutY="1.0" mnemonicParsing="false" onAction="#taiAnhMinhChung" style="-fx-background-color: white;" text="Cập nhật ảnh minh chứng">
                       <font>
                           <Font name="System Bold" size="20.0" />
                       </font>
                   </Button>
               </children>
           </Pane>
-          <Button layoutX="229.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận ">
+          <Button layoutX="229.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: white;" text="Xác nhận ">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>
           </Button>
-          <Button layoutX="411.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="119.0" style="-fx-background-color: #F1D4A7;" text="Hủy">
+          <Button layoutX="411.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="119.0" style="-fx-background-color: white;" text="Hủy">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>

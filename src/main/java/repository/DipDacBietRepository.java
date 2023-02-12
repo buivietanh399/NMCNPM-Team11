@@ -42,6 +42,8 @@ public interface DipDacBietRepository {
 
     public ArrayList<Integer> listYear();
 
+    int idMax();
+
 
     //cho thống kê
     //1. Các hộ đã trao

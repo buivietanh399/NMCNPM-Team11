@@ -9,14 +9,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -42,6 +42,7 @@ public class ChuyenNhanKhauController {
     PreparedStatement preparedStatement;
     int nhanKhauId;
 
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
     public void setChuyenNhanKhau(NhanKhau nk){
         ngaySinhLabel.setText(nk.getBieuDienNgaySinh());
         hoTenLabel.setText((nk.getHoTen()));
@@ -67,17 +68,16 @@ public class ChuyenNhanKhauController {
             alert.showAndWait();
 
         } else {
-            //thêm lịch sử HD
+            //thêm LSHD
             LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
             lichSuHoatDong.setTenHD("Chuyển nhân khẩu");
             lichSuHoatDong.setIdHD(NhanKhauController.id_chuyenNk);
-            lichSuHoatDong.setThoiGianHD(LocalDate.now());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
             lichSuHoatDong.setNoiDungHD("Chuyển nhân khẩu: "
                                          + "\nNgày chuyển: " + ngayChuyenDi.toString()
                                          + "\nNơi chuyển đến: " + noiChuyenDen
             );
-
-            History.lishSuHD_NhanKhau.add(lichSuHoatDong);
+            lichSuHoatDongRepository.addNK(lichSuHoatDong);
 
 
             update();

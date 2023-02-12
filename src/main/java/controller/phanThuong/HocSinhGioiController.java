@@ -22,12 +22,13 @@ import javafx.util.Callback;
 import lombok.SneakyThrows;
 import repository.HocSinhGioiRepositoryImpl;
 import repository.HocSinhGioiRepository;
-import utility.History;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.Message;
 import utility.Utility;
 import utility.Variable;
 
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -57,6 +58,9 @@ public class HocSinhGioiController implements Initializable {
 
     ObservableList<String> truongTraCuu = FXCollections.observableArrayList(Variable.NAM_HOC);
     HocSinhGioiRepository hocSinhGioiImpl = new HocSinhGioiRepositoryImpl();
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
 
     //lưu id dịp cho add lSHD
     public  static  int id_suaHSG;
@@ -177,9 +181,9 @@ public class HocSinhGioiController implements Initializable {
         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
         lichSuHoatDong.setTenHD("Xem chi tiết dịp trao thưởng ");
         lichSuHoatDong.setIdHD(dipHocSinhGioi.getIdDip());
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
         lichSuHoatDong.setNoiDungHD("");
-        History.lishSuHD_HocSinhGioi.add(0, lichSuHoatDong);
+        lichSuHoatDongRepository.addHSG(lichSuHoatDong);
 
 
     }
@@ -199,9 +203,9 @@ public class HocSinhGioiController implements Initializable {
             LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
             lichSuHoatDong.setTenHD("Xóa dịp trao thưởng ");
             lichSuHoatDong.setIdHD(dipHocSinhGioi.getIdDip());
-            lichSuHoatDong.setThoiGianHD(LocalDate.now());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
             lichSuHoatDong.setNoiDungHD("");
-            History.lishSuHD_HocSinhGioi.add(0, lichSuHoatDong);
+            lichSuHoatDongRepository.addHSG(lichSuHoatDong);
 
 
             Alert newAleart = new Alert(Alert.AlertType.INFORMATION);
@@ -242,11 +246,11 @@ public class HocSinhGioiController implements Initializable {
 
         //thêm LSHD
         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-        lichSuHoatDong.setTenHD("Xem danh sách nhân nhẩu nhận thưởng ");
+        lichSuHoatDong.setTenHD("Xem danh sách nhận thưởng ");
         lichSuHoatDong.setIdHD(dipHocSinhGioi.getIdDip());
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
         lichSuHoatDong.setNoiDungHD("");
-        History.lishSuHD_HocSinhGioi.add(0, lichSuHoatDong);
+        lichSuHoatDongRepository.addHSG(lichSuHoatDong);
 
         Stage stage = Utility.setStage(p);
         stage.setOnHidden(windowEvent -> {

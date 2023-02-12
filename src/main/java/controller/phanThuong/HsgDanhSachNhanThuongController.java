@@ -2,6 +2,7 @@ package controller.phanThuong;
 
 import entity.ChiTietDipHocSinhGioi;
 import entity.DipHocSinhGioi;
+import entity.LichSuHoatDong;
 import entity.NhanKhauHocSinhGioi;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
@@ -12,7 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,11 +22,14 @@ import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import repository.HocSinhGioiRepositoryImpl;
 import repository.HocSinhGioiRepository;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.Message;
 import utility.Utility;
 import utility.Variable;
 
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -57,6 +60,9 @@ public class HsgDanhSachNhanThuongController implements Initializable {
 
     private DipHocSinhGioi dipHocSinhGioi = new DipHocSinhGioi();
     private HocSinhGioiRepository hocSinhGioiImpl = new HocSinhGioiRepositoryImpl();
+
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
+
 
     public void setDanhSach(DipHocSinhGioi dip) {
         dipHocSinhGioi = dip;
@@ -119,6 +125,7 @@ public class HsgDanhSachNhanThuongController implements Initializable {
         stage.setOnHidden(windowEvent -> {
             nhanKhauTable.setItems(hocSinhGioiImpl.bangNhanThuong(dipHocSinhGioi.getIdDip()));
         });
+
     }
 
     public void xoaMinhChung(ActionEvent actionEvent) {
@@ -126,9 +133,19 @@ public class HsgDanhSachNhanThuongController implements Initializable {
         alert.setHeaderText(Message.xacNhanXoaMinhChung);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
+
+
             NhanKhauHocSinhGioi nkhsg = nhanKhauTable.getSelectionModel().getSelectedItem();
             hocSinhGioiImpl.xoaMinhChung(dipHocSinhGioi.getIdDip(), nkhsg.getIdNhanKhau());
             nhanKhauTable.setItems(hocSinhGioiImpl.bangNhanThuong(dipHocSinhGioi.getIdDip()));
+
+            //thêm LSHD
+            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+            lichSuHoatDong.setTenHD("Xóa học sinh nhận thưởng HSG ");
+            lichSuHoatDong.setIdHD(dipHocSinhGioi.getIdDip());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+            lichSuHoatDong.setNoiDungHD("Xóa học sinh với ID: "+ nkhsg.getIdNhanKhau());
+            lichSuHoatDongRepository.addHSG(lichSuHoatDong);
         }
     }
 }

@@ -7,7 +7,7 @@
 
 <ScrollPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.HocSinhGioiController">
     <content>
-        <Pane fx:id="hsgMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;">
+        <Pane fx:id="hsgMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
             <children>
                 <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: white;">
                     <children>

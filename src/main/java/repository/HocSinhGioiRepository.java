@@ -39,6 +39,8 @@ public interface HocSinhGioiRepository {
 
     int hoChuaTrao(Integer idDip);
 
+    int idMax();
+
 
     //cho thống kê
     //1. cac ho da trao

@@ -14,14 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
+import repository.LichSuHoatDongRepositoryImpl;
 import utility.DbUtil;
-import utility.History;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,6 +61,8 @@ public class ChinhSuaNhanKhauController  {
     private int id_NK;
     String gioiTinhC=null;
 
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository  = new LichSuHoatDongRepositoryImpl();
+
 
 
     public void setChinhSuaNK(NhanKhau nk){
@@ -101,11 +99,11 @@ public class ChinhSuaNhanKhauController  {
 
         } else {
 
-            //thêm vào ls hoạt đôg
+            //thêm LSHD
             LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
             lichSuHoatDong.setIdHD(NhanKhauController.id_chinhsuaNk);
             lichSuHoatDong.setTenHD("Chỉnh sửa nhân khẩu");
-            lichSuHoatDong.setThoiGianHD(LocalDate.now());
+            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
             String noiDung = "Chỉnh sửa: ";
 
             try {
@@ -209,7 +207,8 @@ public class ChinhSuaNhanKhauController  {
                 }
 
                 lichSuHoatDong.setNoiDungHD(noiDung);
-                History.lishSuHD_NhanKhau.add(0,lichSuHoatDong);
+                lichSuHoatDongRepository.addNK(lichSuHoatDong);
+
             }catch (SQLException ex) {
                 Logger.getLogger(ThongTinNhanKhauController.class.getName()).log(Level.SEVERE, null, ex);
             }

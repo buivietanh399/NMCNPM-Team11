@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="494.0" style="-fx-background-color: white; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NguoiDungController">
+<AnchorPane fx:id="dangNhapPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="494.0" style="-fx-background-color: white; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NguoiDungController">
    <children>
       <Label layoutX="165.0" layoutY="27.0" prefHeight="52.0" prefWidth="255.0" style="-fx-background-radius: 50; -fx-background-color: #FFF;" text="Quản lý nhân khẩu" textFill="#6b91fb">
          <font>

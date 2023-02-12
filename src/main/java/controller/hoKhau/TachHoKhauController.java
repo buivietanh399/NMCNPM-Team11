@@ -13,8 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import repository.HoKhauRepositoryImpl;
-import utility.DbUtil;
-import utility.History;
+import repository.LichSuHoatDongRepositoryImpl;
 
 import java.net.URL;
 import java.sql.*;
@@ -87,6 +86,7 @@ public class TachHoKhauController implements Initializable {
 
     //Repo:
     static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+    LichSuHoatDongRepositoryImpl lichSuHoatDongRepository = new LichSuHoatDongRepositoryImpl();
 
     public void ngaytaomoi_datepicker(ActionEvent e){
         LocalDate a = ngay_tao_moi_datepicker.getValue();
@@ -300,6 +300,8 @@ public class TachHoKhauController implements Initializable {
         }
         int idHoKhau = Integer.parseInt(ma_ho_khau_hien_tai.getText());
 
+
+
         update_nk_hk_hien_tai(idHoKhau);
         update_ch_hk_hien_tai(idHoKhau);
         update_id_ch_hien_tai(idHoKhau);
@@ -319,10 +321,12 @@ public class TachHoKhauController implements Initializable {
         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
         lichSuHoatDong.setTenHD("Tách hộ khẩu");
         lichSuHoatDong.setIdHD(HoKhauController.id_tachHK);
-        lichSuHoatDong.setThoiGianHD(LocalDate.now());
+        lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
         String noiDung = "ID Hộ khẩu mới được tách :  " + Integer.toString(idHoKhauNew);
         lichSuHoatDong.setNoiDungHD(noiDung);
-        History.lishSuHD_HoKhau.add(0, lichSuHoatDong);
+        lichSuHoatDongRepository.addHK(lichSuHoatDong);
+
+
 
 
         Alert m = new Alert(Alert.AlertType.INFORMATION);

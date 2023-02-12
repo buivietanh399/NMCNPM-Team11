@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="670.0" prefWidth="754.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.QuanLyTamVangController">
+<AnchorPane prefHeight="670.0" prefWidth="754.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.QuanLyTamVangController">
    <children>
       <Button layoutX="231.0" layoutY="551.0" mnemonicParsing="false" onMouseClicked="#save" text="Xác nhận">
          <font>
