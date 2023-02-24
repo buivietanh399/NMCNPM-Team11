@@ -149,11 +149,11 @@
                <font>
                   <Font size="20.0" />
                </font></Text>
-            <Button layoutX="571.0" layoutY="592.0" mnemonicParsing="false" onMouseClicked="#save_ChinhSua" prefHeight="44.0" prefWidth="122.0" text="Xác nhận">
+            <Button layoutX="470.0" layoutY="592.0" mnemonicParsing="false" onMouseClicked="#save_ChinhSua" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: white;" text="Xác nhận">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>
-            <Button layoutX="781.0" layoutY="592.0" mnemonicParsing="false" onAction="#huy" prefHeight="44.0" prefWidth="100.0" text="Hủy">
+            <Button layoutX="615.0" layoutY="592.0" mnemonicParsing="false" onAction="#huy" prefHeight="44.0" prefWidth="116.0" style="-fx-background-color: white;" text="Hủy">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>
@@ -161,12 +161,7 @@
             <DatePicker fx:id="ngayCapLabel" layoutX="701.0" layoutY="332.0" prefHeight="37.0" prefWidth="304.0" />
             <DatePicker fx:id="chuyenDenNgayLabel" layoutX="735.0" layoutY="389.0" prefHeight="37.0" prefWidth="268.0" />
             <ComboBox fx:id="combGioiTinh" layoutX="162.0" layoutY="332.0" onAction="#selectGioiTinh" prefHeight="37.0" prefWidth="278.0" />
-            <Text fill="RED" layoutX="75.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
-               <font>
-                  <Font name="System Italic" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="RED" layoutX="117.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CMND là Chứng minh nhân dân">
+            <Text fill="RED" layoutX="32.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>

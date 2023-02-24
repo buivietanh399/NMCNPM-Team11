@@ -69,6 +69,8 @@ public class SQLCommand {
             "AND tt.denNgay > NOW()";
     public static String NHAN_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM nhan_khau";
 
+    public static String NHAN_KHAU_QUERY_LAY_THONG_TIN_THEO_ID = "SELECT * FROM nhan_khau where idNhanKhau = ?";
+
 
     //cho thống kê
     public static String NHAN_KHAU_QUERY_NAM = "SELECT COUNT(*) FROM nhan_khau WHERE gioiTinh = N'Nam'";
@@ -556,11 +558,45 @@ public class SQLCommand {
     public static String LICH_SU_ADD_HSG = "INSERT INTO lich_su_hoat_dong(nhom, idHD3, tenHD ,noidungHD , thoiGianHD) VALUES (3, ?, ?, ?, ?)";
     public static String LICH_SU_ADD_DB = "INSERT INTO lich_su_hoat_dong(nhom, idHD4, tenHD ,noidungHD , thoiGianHD) VALUES (4, ?, ?, ?, ?)";
 
+    public static String LICH_SU_ADD_NHAN_KHAU_XOA = "INSERT INTO lich_su_hoat_dong_xoa(nhom, idHD ,noidungHDXoa, thoiGianHD,hoTen, cmnd ) VALUES (1, ?, ?, ?,?,?)";
+    public static String LICH_SU_ADD_HO_KHAU_XOA = "INSERT INTO lich_su_hoat_dong_xoa(nhom, idHD ,noidungHDXoa, thoiGianHD,hoTen, cmnd ) VALUES (2, ?, ?, ?,?,?)";
+
+
+
 
     //3.8 Lấy LSHD theo nhóm
     public static String LICH_SU_QUERY= "Select * from lich_su_hoat_dong where nhom = ?";
 
+    public static String LICH_SU_QUERY_XOA= "Select * from lich_su_hoat_dong_xoa where nhom = ?";
 
+    //Cho xóa - khôi phục lịch sử xóa
+
+    //xóa vĩnh viễn
+    public static String LICH_SU_DELETE_NHAN_KHAU_XOA = "Delete from lich_su_hoat_dong_xoa where cmnd = ? and nhom = 1";
+
+    //xóa toàn bộ
+    public static String LICH_SU_DELETE_ALL_NHAN_KHAU_XOA = "Delete from lich_su_hoat_dong_xoa where nhom = 1";
+
+    //lưu lại chủ hộ
+    public static String LICH_SU_QUERY_XOA_CMND_CHU_HO= "Select nk.cmnd from nhan_khau nk, ho_khau hk\n" +
+            "            where hk.idChuHo = nk.idNhanKhau\n" +
+            "            and hk.idHoKhau = ?";
+
+    //Hoàn tác ( thêm lại ) hộ khẩu, hộ khẩu - nhân khẩu
+    //them HK
+    public static String LICH_SU_KHOI_PHUC_HO_KHAU ="INSERT INTO ho_khau(idChuHo, tinhThanhPho, quanHuyen, phuongXa, diaChi, ngayTao, trangThai) VALUES\n" +
+                                                                                                           "(?, ?, ?, ?, ?, ?, ?)";
+    //Lấy ID hộ khẩu vừa tạo để thêm hk_nk
+    public static String HO_KHAU_MAX = " select max(idHoKhau) from ho_khau ";
+
+    //ktra thành viên đã bị xóa chưa
+    public static String LICH_SU_CHECK_THANH_VIEN_DA_XOA_CHUA = "SELECT idNhanKhau from nhan_khau WHERE idNhanKhau = ?";
+
+    //xóa vĩnh viễn
+    public static String LICH_SU_DELETE_HO_KHAU_XOA = "Delete from lich_su_hoat_dong_xoa where cmnd = ? and nhom = 2";
+
+    //xóa toàn bộ
+    public static String LICH_SU_DELETE_ALL_HO_KHAU_XOA = "Delete from lich_su_hoat_dong_xoa where nhom = 2";
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

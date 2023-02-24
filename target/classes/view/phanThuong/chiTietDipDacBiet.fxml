@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -111,11 +112,6 @@
             </Label>
               </children>
           </Pane>
-          <Button mnemonicParsing="false" onMouseClicked="#quayLaiClick" text="BACK">
-              <font>
-                  <Font name="System Bold" size="20.0" />
-              </font>
-          </Button>
       <Pane layoutX="56.0" layoutY="100.0" prefHeight="44.0" prefWidth="617.0">
          <children>
             <Label layoutY="8.0" text="Tên dịp:" textFill="#f8f1f1">
@@ -130,5 +126,10 @@
             </Label>
          </children>
       </Pane>
+      <ImageView fitHeight="45.0" fitWidth="114.0" layoutX="-1.0" layoutY="1.0" onMouseClicked="#quayLaiClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back_blue.png" />
+         </image>
+      </ImageView>
       </children>
   </Pane>

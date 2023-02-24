@@ -52,8 +52,8 @@ public class NguoiDungController  implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dangNhapPane.setStyle("-fx-background-image: url('https://images.unsplash.com/photo-1530293959042-0aac487c21e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ymx1ZSUyMGFuZCUyMHdoaXRlfGVufDB8fDB8fA%3D%3D&w=1000&q=80'); " +
                 "-fx-background-position: center center; " +
-                "-fx-background-repeat: stretch;");
-
+                "-fx-background-repeat: stretch;"
+        + "-fx-background-color: white");
     }
 
 

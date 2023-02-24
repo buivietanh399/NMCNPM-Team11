@@ -2,6 +2,7 @@ package repository;
 
 import entity.ChiTiet_TraoThuong_HSG;
 import entity.LichSuHoatDong;
+import entity.LichSuHoatDongXoa;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -111,7 +112,6 @@ public class LichSuHoatDongRepositoryImpl implements  LichSuHoatDongRepository {
          listHD_HK.add("Tất cả");
          listHD_HK.add("Chuyển hộ khẩu");
          listHD_HK.add("Xem lịch sử chuyển đi");
-         listHD_HK.add("Xóa hộ khẩu");
          listHD_HK.add("Xem chi tiết hộ khẩu");
          listHD_HK.add("Chỉnh sửa hộ khẩu");
          listHD_HK.add("Tách hộ khẩu");
@@ -121,7 +121,6 @@ public class LichSuHoatDongRepositoryImpl implements  LichSuHoatDongRepository {
          listHD_HSG.add("Tất cả");
          listHD_HSG.add("Chỉnh sửa dịp");
          listHD_HSG.add("Xem chi tiết");
-         listHD_HSG.add("Xóa dịp");
          listHD_HSG.add("Xem danh sách");
          listHD_HSG.add("Xóa học sinh nhận thưởng");
          listHD_HSG.add("Sửa minh chứng");
@@ -132,9 +131,57 @@ public class LichSuHoatDongRepositoryImpl implements  LichSuHoatDongRepository {
          listHD_DB.add("Tất cả");
          listHD_DB.add("Chỉnh sửa dịp");
          listHD_DB.add("Xem chi tiết");
-         listHD_DB.add("Xóa dịp");
          listHD_DB.add("Xem danh sách");
          listHD_DB.add("Tạo dịp");
+    }
+
+
+    //cho hoàn tác xóa đối tượng
+    @SneakyThrows
+    @Override
+    public ObservableList<LichSuHoatDongXoa> bangLSHD_Xoa(int nhom) throws SQLException{
+        ObservableList<LichSuHoatDongXoa> list = FXCollections.observableArrayList();
+        conn = DbUtil.getInstance().getConnection();
+        pstmt = conn.prepareStatement(SQLCommand.LICH_SU_QUERY_XOA);
+        pstmt.setInt(1, nhom);
+        rs = pstmt.executeQuery();
+        while (rs.next()) {
+            LichSuHoatDongXoa LSHD_Xoa = new LichSuHoatDongXoa();
+            LSHD_Xoa.setIdHD(rs.getInt("idHD"));
+            LSHD_Xoa.setNoiDungHDXoa(rs.getString("noiDungHDXoa"));
+            LSHD_Xoa.setThoiGianHD(rs.getDate("thoiGianHD"));
+            LSHD_Xoa.setHoTen(rs.getString("hoTen"));
+            LSHD_Xoa.setCMND(rs.getString("cmnd"));
+            list.add(0,LSHD_Xoa);
+        }
+        DbUtil.releaseResource(rs, stmt, pstmt, cstmt, conn);
+        return list;
+
+    }
+
+    @SneakyThrows
+    public void addNK_Xoa(LichSuHoatDongXoa l){
+        conn = DbUtil.getInstance().getConnection();
+        pstmt = conn.prepareStatement(SQLCommand.LICH_SU_ADD_NHAN_KHAU_XOA);
+        pstmt.setInt(1, l.getIdHD());
+        pstmt.setString(2, l.getNoiDungHDXoa());
+        pstmt.setDate(3,l.getThoiGianHD());
+        pstmt.setString(4,l.getHoTen());
+        pstmt.setString(5,l.getCMND());
+        pstmt.execute();
+
+    }
+
+    @SneakyThrows
+    public void addHK_Xoa(LichSuHoatDongXoa l){
+        conn = DbUtil.getInstance().getConnection();
+        pstmt = conn.prepareStatement(SQLCommand.LICH_SU_ADD_HO_KHAU_XOA);
+        pstmt.setInt(1, l.getIdHD());
+        pstmt.setString(2, l.getNoiDungHDXoa());
+        pstmt.setDate(3,l.getThoiGianHD());
+        pstmt.setString(4,l.getHoTen());
+        pstmt.setString(5,l.getCMND());
+        pstmt.execute();
     }
 
 }

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utility.DbUtil;
 
@@ -58,6 +59,10 @@ public class ThongTinNhanKhauController {
        Connection connection = null;
        ResultSet resultSet = null;
        PreparedStatement preparedStatement;
+       public void close_button(MouseEvent e){
+              Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+              stage.close();
+       }
 
        public void setNhanKhau(NhanKhau nk)  {
               id_NK=nk.getId();

@@ -11,7 +11,7 @@
                   <Font name="System Bold" size="30.0" />
               </font>
           </Label>
-          <Label layoutX="184.0" layoutY="619.0" text="Ghi chú: (*) là các trường bắt buộc " textFill="RED">
+          <Label layoutX="55.0" layoutY="620.0" text="Ghi chú: (*) là các trường bắt buộc " textFill="RED">
               <font>
                   <Font name="System Italic" size="20.0" />
               </font>
@@ -145,12 +145,12 @@
                   </TextField>
               </children>
           </Pane>
-          <Button layoutX="509.0" layoutY="613.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" text="Xác nhận">
+          <Button layoutX="509.0" layoutY="613.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: white;" text="Xác nhận">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>
           </Button>
-          <Button layoutX="647.0" layoutY="613.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="121.0" text="Hủy">
+          <Button layoutX="647.0" layoutY="613.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="121.0" style="-fx-background-color: white;" text="Hủy">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>

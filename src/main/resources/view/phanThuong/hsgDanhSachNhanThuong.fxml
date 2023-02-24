@@ -12,11 +12,6 @@
                   <Font name="System Bold" size="30.0" />
               </font>
           </Label>
-          <Button mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: WHITE;" text="BACK">
-              <font>
-                  <Font name="System Bold" size="20.0" />
-              </font>
-          </Button>
           <Label layoutX="58.0" layoutY="116.0" text="Danh sách học sinh được nhận thưởng:" textFill="WHITE">
               <font>
                   <Font name="System Bold Italic" size="20.0" />
@@ -41,9 +36,9 @@
               <columns>
                   <TableColumn fx:id="idCol" prefWidth="98.0" style="-fx-alignment: CENTER;" text="ID Nhân khẩu" />
                   <TableColumn fx:id="tenCol" prefWidth="188.0" style="-fx-alignment: CENTER;" text="Tên nhân khẩu" />
-                  <TableColumn fx:id="thanhTichCol" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Thành tích đạt được" />
-                  <TableColumn fx:id="truongCol" prefWidth="336.0" style="-fx-alignment: CENTER;" text="Trường " />
-                  <TableColumn fx:id="lopCol" prefWidth="72.0" style="-fx-alignment: CENTER;" text="Lớp" />
+                  <TableColumn fx:id="thanhTichCol" prefWidth="254.0" style="-fx-alignment: CENTER;" text="Thành tích đạt được" />
+                  <TableColumn fx:id="truongCol" prefWidth="214.4000244140625" style="-fx-alignment: CENTER;" text="Trường " />
+                  <TableColumn fx:id="lopCol" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Lớp" />
                   <TableColumn fx:id="kiemTraCol" prefWidth="121.0" style="-fx-alignment: CENTER;" text="Đã trao thưởng" />
               </columns>
               <contextMenu>
@@ -55,5 +50,10 @@
                   </ContextMenu>
               </contextMenu>
           </TableView>
+      <ImageView fitHeight="35.0" fitWidth="89.0" layoutX="2.0" layoutY="1.0" onMouseClicked="#quayLaiClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back_blue.png" />
+         </image>
+      </ImageView>
       </children>
   </Pane>

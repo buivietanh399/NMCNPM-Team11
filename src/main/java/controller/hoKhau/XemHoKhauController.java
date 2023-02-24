@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
@@ -81,7 +82,7 @@ public class XemHoKhauController implements Initializable {
         hoten_chu_ho_label.setText(this.getHoten_chu_ho_hold());
     }
 
-    public void close_button(ActionEvent e){
+    public void close_button(MouseEvent e){
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         stage.close();
     }

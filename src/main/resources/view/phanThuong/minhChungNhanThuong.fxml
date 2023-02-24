@@ -13,7 +13,7 @@
                   <Font name="System Bold" size="30.0" />
               </font>
           </Label>
-          <Label layoutX="530.0" layoutY="234.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="RED">
+          <Label layoutX="56.0" layoutY="709.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="RED">
               <font>
                   <Font name="System Italic" size="20.0" />
               </font>
@@ -115,19 +115,19 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="169.0" layoutY="1.0" mnemonicParsing="false" onAction="#taiAnhMinhChung" style="-fx-background-color: WHITE;" text="Tải ảnh minh chứng từ máy">
+            <Button layoutX="169.0" layoutY="1.0" mnemonicParsing="false" onAction="#taiAnhMinhChung" style="-fx-background-color: white;" text="Tải ảnh minh chứng từ máy">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
               </children>
           </Pane>
-          <Button layoutX="56.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: WHITE;" text="Xác nhận">
+          <Button layoutX="56.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: white;" text="Xác nhận">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>
           </Button>
-          <Button layoutX="262.0" layoutY="623.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="45.0" prefWidth="131.0" style="-fx-background-color: WHITE;" text="Hủy">
+          <Button layoutX="210.0" layoutY="623.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="45.0" prefWidth="131.0" style="-fx-background-color: white;" text="Hủy">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>

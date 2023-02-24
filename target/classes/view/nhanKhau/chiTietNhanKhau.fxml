@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="586.0" prefWidth="1031.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.ThongTinNhanKhauController">
    <children>
-      <Label fx:id="hoTenLabel" layoutX="226.0" layoutY="119.0" prefHeight="21.0" prefWidth="374.0" text="Label" textFill="WHITE">
+      <Label fx:id="hoTenLabel" layoutX="226.0" layoutY="119.0" prefHeight="30.0" prefWidth="244.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="546.0" layoutY="410.0" text="Trạng thái :" textFill="WHITE">
+      <Label layoutX="547.0" layoutY="410.0" text="Trạng thái :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="549.0" layoutY="356.0" text="Chuyển đến ngày :" textFill="WHITE">
+      <Label layoutX="547.0" layoutY="356.0" text="Chuyển đến ngày :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="548.0" layoutY="310.0" text="Ngày cấp :" textFill="WHITE">
+      <Label layoutX="547.0" layoutY="310.0" text="Ngày cấp :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="549.0" layoutY="266.0" text="CMND :" textFill="WHITE">
+      <Label layoutX="547.0" layoutY="266.0" text="CMND :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="549.0" layoutY="216.0" text="Nơi làm việc :" textFill="WHITE">
+      <Label layoutX="547.0" layoutY="216.0" text="Nơi làm việc :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -45,37 +46,37 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="516.0" prefHeight="30.0" prefWidth="388.0" text="Nơi thường trú trước khi chuyển đến :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="516.0" prefHeight="30.0" prefWidth="388.0" text="Nơi thường trú trước khi chuyển đến :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="462.0" text="Tôn giáo :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="462.0" text="Tôn giáo :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="73.0" layoutY="410.0" text="Dân tộc :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="410.0" text="Dân tộc :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="356.0" text="Nguyên quán :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="356.0" text="Nguyên quán :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="310.0" text="Giới tính :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="310.0" text="Giới tính :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="266.0" text="Nơi sinh :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="266.0" text="Nơi sinh :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="172.0" text="Bí danh :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="172.0" text="Bí danh :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -85,7 +86,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="216.0" text="Ngày sinh :" textFill="WHITE">
+      <Label layoutX="77.0" layoutY="216.0" text="Ngày sinh :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -95,11 +96,11 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="biDanhLabel" layoutX="229.0" layoutY="164.0" prefHeight="30.0" prefWidth="368.0" text="Label" textFill="WHITE">
+      <Label fx:id="biDanhLabel" layoutX="226.0" layoutY="164.0" prefHeight="30.0" prefWidth="368.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="gioiTinhLabel" layoutX="229.0" layoutY="310.0" prefHeight="30.0" prefWidth="299.0" text="Label" textFill="WHITE">
+      <Label fx:id="gioiTinhLabel" layoutX="226.0" layoutY="310.0" prefHeight="30.0" prefWidth="299.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -107,23 +108,23 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="ngaySinhLabel" layoutX="229.0" layoutY="216.0" prefHeight="30.0" prefWidth="345.0" text="Label" textFill="WHITE">
+      <Label fx:id="ngaySinhLabel" layoutX="226.0" layoutY="216.0" prefHeight="30.0" prefWidth="345.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="noiSinhLabel" layoutX="229.0" layoutY="266.0" prefHeight="30.0" prefWidth="368.0" text="Label" textFill="WHITE">
+      <Label fx:id="noiSinhLabel" layoutX="226.0" layoutY="266.0" prefHeight="30.0" prefWidth="319.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="nguyenQuanLabel" layoutX="229.0" layoutY="356.0" prefHeight="30.0" prefWidth="319.0" text="Label" textFill="WHITE">
+      <Label fx:id="nguyenQuanLabel" layoutX="226.0" layoutY="356.0" prefHeight="30.0" prefWidth="319.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="danTocLabel" layoutX="229.0" layoutY="410.0" prefHeight="30.0" prefWidth="332.0" text="Label" textFill="WHITE">
+      <Label fx:id="danTocLabel" layoutX="226.0" layoutY="410.0" prefHeight="30.0" prefWidth="332.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="tonGiaoLabel" layoutX="224.0" layoutY="462.0" prefHeight="30.0" prefWidth="309.0" text="Label" textFill="WHITE">
+      <Label fx:id="tonGiaoLabel" layoutX="226.0" layoutY="462.0" prefHeight="30.0" prefWidth="309.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -151,9 +152,14 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="trangThaiLabel" layoutX="730.0" layoutY="410.0" prefHeight="30.0" prefWidth="264.0" text="Label" textFill="WHITE">
+      <Label fx:id="trangThaiLabel" layoutX="734.0" layoutY="410.0" prefHeight="30.0" prefWidth="264.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
+      <ImageView fitHeight="46.0" fitWidth="108.0" layoutY="-3.0" onMouseClicked="#close_button" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back_blue.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

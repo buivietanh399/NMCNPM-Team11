@@ -352,12 +352,10 @@ public class ChinhSuaNhanKhauController  {
 
     }
     @FXML
-    private void huy(MouseEvent event) {
+    private void huy(ActionEvent event) {
         final Node source = (Node) event.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
-
-
     }
 
 

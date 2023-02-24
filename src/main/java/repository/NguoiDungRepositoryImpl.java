@@ -14,10 +14,11 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository {
     private CallableStatement cstmt = null;
     private Connection conn = null;
 
-    public static  NguoiDung nguoiDung = new NguoiDung();
+    public static    NguoiDung nguoiDung = new NguoiDung();
     @Override
     public boolean dangNhap(String taiKhoan, String matKhau) {
         Boolean kiemTra;
+        int dem=0;
         try {
             conn = DbUtil.getInstance().getConnection();
             pstmt = conn.prepareStatement(SQLCommand.NGUOI_DUNG_QUERY_DANG_NHAP);
@@ -25,6 +26,7 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository {
             pstmt.setString(2, matKhau);
             rs = pstmt.executeQuery();
             while(rs.next()) {
+                dem++;
                 nguoiDung.setId(rs.getInt("id"));
                 nguoiDung.setTaiKhoan(rs.getString("taiKhoan"));
                 nguoiDung.setMatKhau(rs.getString("matKhau"));
@@ -46,7 +48,7 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository {
             }
         }
 
-        if (nguoiDung.getId() != null) {
+        if (nguoiDung.getId() != null && dem>0) {
             kiemTra = true;
         } else {
             kiemTra = false;
@@ -54,6 +56,5 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository {
 
         return kiemTra;
     }
-
 
 }

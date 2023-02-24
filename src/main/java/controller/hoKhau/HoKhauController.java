@@ -3,6 +3,7 @@ package controller.hoKhau;
 import entity.HoKhau;
 import entity.HoKhauNhanKhau;
 import entity.LichSuHoatDong;
+import entity.LichSuHoatDongXoa;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -109,7 +110,8 @@ public class HoKhauController implements Initializable {
         //thêm LSHD
         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
         lichSuHoatDong.setTenHD("Xem lịch sử chuyển đi hộ khẩu");
-        lichSuHoatDong.setNoiDungHD("");
+        lichSuHoatDong.setNoiDungHD("Xóa hộ khẩu với ID chủ hộ: " + hk.getIdChuHo());
+        lichSuHoatDong.setIdHD(hk.getIdHoKhau());
         lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
         lichSuHoatDongRepository.addHK(lichSuHoatDong);
 
@@ -156,23 +158,40 @@ public class HoKhauController implements Initializable {
 
         if(result.get().getButtonData() == ButtonBar.ButtonData.YES){
 
-            //thêm LSHD
-            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+//             idHoKhau INT NOT NULL AUTO_INCREMENT,
+//                        idChuHo INT NOT NULL,
+//                        tinhThanhPho NVARCHAR(255) NOT NULL,
+//                        quanHuyen NVARCHAR(255) NOT NULL,
+//                        phuongXa NVARCHAR(255) NOT NULL,
+//                        diaChi NVARCHAR(255) NOT NULL,
+//                        ngayTao DATE NOT NULL,
+//                        trangThai NVARCHAR(255) NOT NULL,
+            //thêm LSHD xóa
+            LichSuHoatDongXoa lichSuHoatDong = new LichSuHoatDongXoa();
             lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
-            lichSuHoatDong.setTenHD("Xóa hộ khẩu");
             lichSuHoatDong.setIdHD(hk.getIdHoKhau());
-            String noiDung = "Xóa hộ khẩu với ID chủ hộ " + Integer.toString(hk.getIdChuHo() ) + " và các ID thành viên nhân khẩu :\n";
+            String noiDung = Integer.toString(hk.getIdChuHo()) + "\n"
+                    + hk.getTinhThanhPho() + "\n"
+                    + hk.getQuanHuyen() + "\n"
+                    + hk.getPhuongXa() + "\n"
+                    + hk.getDiachi() + "\n"
+                    + hk.getNgayTao() + "\n"
+                    + hk.getTrangThai() + "\n";
             HoKhauRepositoryImpl hoKhauRepository = new HoKhauRepositoryImpl() ;
             ObservableList<HoKhauNhanKhau> list = hoKhauRepository.loadDataXemHoKhauController(hk.getIdHoKhau());
             for( HoKhauNhanKhau x : list){
-                noiDung+= Integer.toString(x.getIdNhanKhau()) + " - " + x.getQuanHeChuHo() +", ";
+                noiDung+= Integer.toString(x.getIdNhanKhau()) + "-" + x.getQuanHeChuHo() + ",";
             }
-            lichSuHoatDong.setNoiDungHD(noiDung);
-            lichSuHoatDongRepository.addHK(lichSuHoatDong);
+            lichSuHoatDong.setNoiDungHDXoa(noiDung);
+            lichSuHoatDong.setHoTen(hk.getHotenChuho());
+            HoKhauRepositoryImpl hoKhauRepository1 = new HoKhauRepositoryImpl();
+            lichSuHoatDong.setCMND(hoKhauRepository1.get_CMND_ChuHo(hk.getIdHoKhau()));
+            lichSuHoatDongRepository.addHK_Xoa(lichSuHoatDong);
 
 
 
 
+            //xóa
             int idHoKhau = hk.getIdHoKhau();
             update_nk_after_delete(idHoKhau);
             update_ch_after_delete(idHoKhau);
@@ -329,6 +348,8 @@ public class HoKhauController implements Initializable {
             m.show();
             return;
         }
+        id_chuyenHK = hk.getIdHoKhau();
+
         controller.chuyen_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);

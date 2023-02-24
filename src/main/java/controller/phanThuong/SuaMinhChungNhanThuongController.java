@@ -63,6 +63,7 @@ public class SuaMinhChungNhanThuongController implements Initializable {
         thanhTich.setValue(NhanKhauHocSinhGioi.getThanhTich(chiTietDipHocSinhGioi.getNhom()));
         Image image = new Image(chiTietDipHocSinhGioi.getMinhChung());
         anhPath = chiTietDipHocSinhGioi.getMinhChung();
+        if(anhPath!=null)
         anhMinhChung.setImage(image);
     }
 

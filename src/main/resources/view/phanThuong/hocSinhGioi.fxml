@@ -9,21 +9,21 @@
     <content>
         <Pane fx:id="hsgMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
             <children>
-                <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: white;">
+                <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.control.Button?&gt;&lt;?import javafx.scene.control.ComboBox?&gt;&lt;?import javafx.scene.control.ContextMenu?&gt;&lt;?import javafx.scene.control.Label?&gt;&lt;?import javafx.scene.control.MenuItem?&gt;&lt;?import javafx.scene.control.TableColumn?&gt;&lt;?import javafx.scene.control.TableView?&gt;&lt;?import javafx.scene.control.TextField?&gt;&lt;?import javafx.scene.image.Image?&gt;&lt;?import javafx.scene.image.ImageView?&gt;&lt;?import javafx.scene.layout.AnchorPane?&gt;&lt;?import javafx.scene.layout.Pane?&gt;&lt;?import javafx.scene.text.Font?&gt;&lt;Pane fx:id=&quot;ddbMainPane&quot; maxHeight=&quot;-Infinity&quot; maxWidth=&quot;-Infinity&quot; prefHeight=&quot;700.0&quot; prefWidth=&quot;1180.0&quot; style=&quot;-fx-background-color: #0047AB;&quot; xmlns=&quot;http://javafx.com/javafx/17.0.2-ea&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;children&gt;      &lt;Pane prefHeight=&quot;66.0&quot; prefWidth=&quot;1449.0&quot; style=&quot;-fx-background-color: WHITE;&quot;&gt;         &lt;children&gt;            &lt;ImageView fitHeight=&quot;50.0&quot; fitWidth=&quot;153.0&quot; layoutY=&quot;9.0&quot; onMouseClicked=&quot;#backMouseClick&quot; pickOnBounds=&quot;true&quot; preserveRatio=&quot;true&quot;&gt;               &lt;image&gt;                  &lt;Image url=&quot;@../../image/back.png&quot; /&gt;               &lt;/image&gt;            &lt;/ImageView&gt;            &lt;Label layoutX=&quot;330.0&quot; layoutY=&quot;12.0&quot; text=&quot;Quản lý phần thưởng dịp đặc biệt&quot; textFill=&quot;#332a99&quot;&gt;               &lt;font&gt;                  &lt;Font name=&quot;System Bold&quot; size=&quot;30.0&quot; /&gt;               &lt;/font&gt;            &lt;/Label&gt;         &lt;/children&gt;      &lt;/Pane&gt;      &lt;Pane layoutX=&quot;151.0&quot; layoutY=&quot;138.0&quot; prefHeight=&quot;50.0&quot; prefWidth=&quot;649.0&quot; style=&quot;-fx-background-color: WHITE; -fx-background-radius: 30;&quot;&gt;         &lt;children&gt;            &lt;ImageView fitHeight=&quot;50.0&quot; fitWidth=&quot;53.0&quot; layoutX=&quot;600.0&quot; onMouseClicked=&quot;#ddbSearchClick&quot; pickOnBounds=&quot;true&quot; preserveRatio=&quot;true&quot;&gt;               &lt;image&gt;                  &lt;Image url=&quot;@../../image/search.png&quot; /&gt;               &lt;/image&gt;            &lt;/ImageView&gt;            &lt;TextField fx:id=&quot;searchText&quot; editable=&quot;false&quot; layoutX=&quot;24.0&quot; onKeyPressed=&quot;#ddbSearchEnter&quot; prefHeight=&quot;50.0&quot; prefWidth=&quot;363.0&quot; promptText=&quot;Nhập dữ liệu cần tra cứu&quot; style=&quot;-fx-background-color: WHITE;&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;15.0&quot; /&gt;               &lt;/font&gt;            &lt;/TextField&gt;            &lt;ComboBox fx:id=&quot;comboBox&quot; layoutX=&quot;397.0&quot; onAction=&quot;#truongTraCuu&quot; prefHeight=&quot;49.0&quot; prefWidth=&quot;196.0&quot; promptText=&quot;Chọn trường tra cứu&quot; style=&quot;-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: WHITE;&quot; /&gt;         &lt;/children&gt;      &lt;/Pane&gt;      &lt;AnchorPane layoutX=&quot;56.0&quot; layoutY=&quot;223.0&quot; prefHeight=&quot;410.0&quot; prefWidth=&quot;760.0&quot;&gt;         &lt;children&gt;            &lt;TableView fx:id=&quot;ddbTable&quot; layoutX=&quot;-14.0&quot; layoutY=&quot;188.0&quot; prefHeight=&quot;359.0&quot; prefWidth=&quot;739.0&quot; AnchorPane.bottomAnchor=&quot;0.0&quot; AnchorPane.leftAnchor=&quot;0.0&quot; AnchorPane.rightAnchor=&quot;0.0&quot; AnchorPane.topAnchor=&quot;0.0&quot;&gt;               &lt;columns&gt;                  &lt;TableColumn fx:id=&quot;ddbIDCol&quot; editable=&quot;false&quot; prefWidth=&quot;75.0&quot; text=&quot;ID Dịp&quot; /&gt;                  &lt;TableColumn fx:id=&quot;ddbTenCol&quot; editable=&quot;false&quot; prefWidth=&quot;183.0&quot; text=&quot;Tên dịp&quot; /&gt;                  &lt;TableColumn fx:id=&quot;ddbNamCol&quot; editable=&quot;false&quot; prefWidth=&quot;77.0&quot; text=&quot;Năm&quot; /&gt;                  &lt;TableColumn fx:id=&quot;ddbSoNguoiCol&quot; editable=&quot;false&quot; prefWidth=&quot;202.0&quot; text=&quot;Số người chưa trao thưởng&quot; /&gt;                  &lt;TableColumn fx:id=&quot;ddbMoTaCol&quot; editable=&quot;false&quot; prefWidth=&quot;222.0&quot; text=&quot;Mô tả&quot; /&gt;               &lt;/columns&gt;               &lt;contextMenu&gt;                  &lt;ContextMenu&gt;                     &lt;items&gt;                        &lt;MenuItem mnemonicParsing=&quot;false&quot; onAction=&quot;#xemDip&quot; text=&quot;Xem chi tiết dịp trao thưởng&quot; /&gt;                        &lt;MenuItem mnemonicParsing=&quot;false&quot; onAction=&quot;#xemDanhSach&quot; text=&quot;Xem danh sách nhân khẩu được nhận thưởng&quot; /&gt;                        &lt;MenuItem mnemonicParsing=&quot;false&quot; onAction=&quot;#chinhSuaThongTin&quot; text=&quot;Chỉnh sửa thông tin dịp trao thưởng&quot; /&gt;                        &lt;MenuItem mnemonicParsing=&quot;false&quot; onAction=&quot;#xoaDip&quot; text=&quot;Xóa dịp trao thưởng&quot; /&gt;                     &lt;/items&gt;                  &lt;/ContextMenu&gt;               &lt;/contextMenu&gt;            &lt;/TableView&gt;         &lt;/children&gt;      &lt;/AnchorPane&gt;      &lt;Button layoutX=&quot;849.0&quot; layoutY=&quot;223.0&quot; mnemonicParsing=&quot;false&quot; onMouseClicked=&quot;#createDip&quot; prefHeight=&quot;50.0&quot; style=&quot;-fx-background-color: WHITE;&quot; text=&quot;Tạo dịp trao thưởng mới&quot;&gt;         &lt;font&gt;            &lt;Font name=&quot;System Bold&quot; size=&quot;20.0&quot; /&gt;         &lt;/font&gt;      &lt;/Button&gt;   &lt;/children&gt;&lt;/Pane&gt;;">
                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="56.0" fitWidth="153.0" layoutY="1.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../image/back.png" />
+                                <Image url="@../../image/back_blue.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="330.0" layoutY="12.0" text="Quản lý phần thưởng học sinh giỏi" textFill="#332a99">
+                        <Label layoutX="330.0" layoutY="12.0" text="Quản lý phần thưởng học sinh giỏi" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="30.0" />
                             </font>
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="112.0" layoutY="136.0" prefHeight="50.0" prefWidth="651.0" style="-fx-background-color: #fff; -fx-background-radius: 30;">
+                <Pane layoutX="250.0" layoutY="141.0" prefHeight="50.0" prefWidth="651.0" style="-fx-background-color: #fff; -fx-background-radius: 30;">
                     <children>
                         <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="602.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -35,17 +35,17 @@
                                 <Font size="15.0" />
                             </font>
                         </TextField>
-                        <ComboBox fx:id="comboBox" layoutX="392.0" onAction="#truongTraCuu" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+                        <ComboBox fx:id="comboBox" layoutX="392.0" onAction="#truongTraCuu" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: white;" />
                     </children>
                 </Pane>
-                <AnchorPane layoutX="56.0" layoutY="223.0" prefHeight="410.0" prefWidth="733.0">
+                <AnchorPane layoutX="126.0" layoutY="223.0" prefHeight="368.0" prefWidth="920.0">
                     <children>
-                        <TableView fx:id="hsgTable" layoutX="-14.0" layoutY="188.0" prefHeight="410.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="hsgTable" layoutY="188.0" prefHeight="371.0" prefWidth="923.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                                <TableColumn fx:id="hsgIDCol" editable="false" prefWidth="75.0" sortable="false" text="ID Dịp" />
-                                <TableColumn fx:id="hsgNamCol" editable="false" prefWidth="76.0" sortType="DESCENDING" text="Năm" />
-                                <TableColumn fx:id="hsgSoNguoiCol" editable="false" prefWidth="205.0" sortType="DESCENDING" text="Số người chưa trao thưởng" />
-                                <TableColumn fx:id="hsgMoTaCol" prefWidth="376.0" sortable="false" text="Mô tả" />
+                                <TableColumn fx:id="hsgIDCol" editable="false" prefWidth="219.20003509521484" sortable="false" text="ID Dịp" />
+                                <TableColumn fx:id="hsgNamCol" editable="false" prefWidth="165.59994506835938" sortType="DESCENDING" text="Năm" />
+                                <TableColumn fx:id="hsgSoNguoiCol" editable="false" prefWidth="243.0" sortType="DESCENDING" text="Số người chưa trao thưởng" />
+                                <TableColumn fx:id="hsgMoTaCol" prefWidth="296.20001220703125" sortable="false" text="Mô tả" />
                             </columns>
                             <contextMenu>
                                 <ContextMenu>
@@ -61,11 +61,16 @@
                         </TableView>
                     </children>
                 </AnchorPane>
-                <Button layoutX="823.0" layoutY="223.0" mnemonicParsing="false" onMouseClicked="#createDip" prefHeight="50.0" style="-fx-background-color: #F7E7CE;" text="Tạo dịp trao thưởng mới">
+                <Button layoutX="460.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#createDip" prefHeight="50.0" style="-fx-background-color: white;" text="Tạo dịp trao thưởng mới">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Button>
+            <Label layoutX="117.0" layoutY="655.0" text="(*) Với mỗi một dịp, chọn chuột phải để hiện các phím chức năng" textFill="RED">
+               <font>
+                  <Font name="System Italic" size="21.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </content>

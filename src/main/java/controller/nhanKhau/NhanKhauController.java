@@ -1,6 +1,7 @@
 package controller.nhanKhau;
 
 import entity.HoKhau;
+import entity.LichSuHoatDongXoa;
 import entity.NhanKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,9 +30,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static utility.SQLCommand.HO_KHAU_QUERY_LAY_THONG_TIN;
-import static utility.SQLCommand.NHAN_KHAU_QUERY_LAY_THONG_TIN;
-
+import static utility.SQLCommand.*;
 
 
 public class NhanKhauController implements Initializable {
@@ -315,19 +314,66 @@ public class NhanKhauController implements Initializable {
                 } else if (option.get() == ButtonType.OK) {
                     nhanKhau = table.getSelectionModel().getSelectedItem();
 
+//                          idNhanKhau INT NOT NULL AUTO_INCREMENT,
+//                          hoTen NVARCHAR(255) NOT NULL,
+//                          biDanh NVARCHAR(255),
+//                          ngaySinh DATE NOT NULL,
+//                          noiSinh NVARCHAR(255) NOT NULL,
+//                          gioiTinh NVARCHAR(255) NOT NULL,
+//                          nguyenQuan NVARCHAR(255) NOT NULL,
+//                          danToc NVARCHAR(255) NOT NULL,
+//                          tonGiao NVARCHAR(255) NOT NULL,
+//                          quocTich NVARCHAR(255) NOT NULL,
+//                          ngheNghiep NVARCHAR(255),
+//                          noiLamViec VARCHAR(255),
+//                          cmnd VARCHAR(255),
+//                          ngayCap DATE,
+//                          chuyenDenNgay DATE,
+//                          noiThuongTruTruoc NVARCHAR(255),
+//                          trangThai NVARCHAR(255),
+
+                    //thêm lshd xóa
+                    preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_LAY_THONG_TIN_THEO_ID);
+                    preparedStatement.setInt(1,nhanKhau.getId());
+                    resultSet = preparedStatement.executeQuery();
+
+                    LichSuHoatDongXoa lichSuHoatDong = new LichSuHoatDongXoa();
+                    while (resultSet.next()){
+                        lichSuHoatDong.setNoiDungHDXoa(
+                                resultSet.getString("hoTen") + "\n"
+                                        + resultSet.getString("biDanh") + "\n"
+                                        + resultSet.getString("ngaySinh")+ "\n"
+                                        + resultSet.getString("noiSinh") + "\n"
+                                        + resultSet.getString("gioiTinh") + "\n"
+                                        + resultSet.getString("nguyenQuan") + "\n"
+                                        + resultSet.getString("danToc") + "\n"
+                                        + resultSet.getString("tonGiao") + "\n"
+                                        + resultSet.getString("quocTich")+ "\n"
+                                        + resultSet.getString("ngheNghiep")+ "\n"
+                                        + resultSet.getString("noiLamViec") + "\n"
+                                        + resultSet.getString("cmnd") + "\n"
+                                        + resultSet.getString("ngayCap")+ "\n"
+                                        + resultSet.getString("chuyenDenNgay") + "\n"
+                                        + resultSet.getString("noiThuongTruTruoc") + "\n"
+                                        + resultSet.getString("trangThai") + "\n"
+                        );
+
+                    }
+
+                    lichSuHoatDong.setIdHD(nhanKhau.getId());
+                    lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
+                    lichSuHoatDong.setCMND(nhanKhau.getCMND());
+                    lichSuHoatDong.setHoTen(nhanKhau.getHoTen());
+                    lichSuHoatDongRepository.addNK_Xoa(lichSuHoatDong);
+
+
+
+
                     connection = DbUtil.getInstance().getConnection();
                     query = "DELETE FROM `nhan_khau` WHERE idNhanKHau ="+nhanKhau.getId();
                     preparedStatement = connection.prepareStatement(query);
                     preparedStatement.execute();
                     refreshTable();
-
-                    //thêm lshd
-                    LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-                    lichSuHoatDong.setTenHD("Xóa nhân khẩu");
-                    lichSuHoatDong.setIdHD(userlist.getId());
-                    lichSuHoatDong.setNoiDungHD("");
-                    lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
-                    lichSuHoatDongRepository.addNK(lichSuHoatDong);
 
 
                 } else if (option.get() == ButtonType.CANCEL) {

@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="hocSinhGioiMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeHocSinhGioiController">
+<Pane fx:id="hocSinhGioiMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeHocSinhGioiController">
     <children>
         <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
             <children>
-                <ImageView fx:id="backImageView" fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="backImageView" fitHeight="36.0" fitWidth="127.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/back_blue.png" />
                     </image>

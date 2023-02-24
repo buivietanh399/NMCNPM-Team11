@@ -83,5 +83,6 @@ public interface HoKhauRepository {
 
     //LichSuChuyenDiController:
     public ObservableList<ChuyenHoKhau> loadData(int idHoKhau);
+    public String get_CMND_ChuHo(int idHoKhau);
 
 }

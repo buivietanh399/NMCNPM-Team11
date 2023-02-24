@@ -360,7 +360,7 @@ public class SuaHoKhauController implements Initializable {
         }
         //đánh dấu đã chinh sửa
         thaydoiquanhe_NK_noidung = "\nThay đổi quan hệ với chủ hộ: "
-                + "\nID nhân khẩu : " + Integer.toString(a.getIdNhanKhau()) + "Quan hệ : " + a.getQuanHeChuHo() + " => " + quanhe_choose.getText();
+                + "\nID nhân khẩu : " + Integer.toString(a.getIdNhanKhau()) + " - Quan hệ mới : " + a.getQuanHeChuHo() + " => " + quanhe_choose.getText();
 
 
         ObservableList<HoKhauNhanKhau> f = FXCollections.observableArrayList();
@@ -421,6 +421,7 @@ public class SuaHoKhauController implements Initializable {
             m.show();
             return;
         }
+
         nk_table_search.setVisible(true);
         bang_searchLabel.setVisible(true);
         hotenNhanKhau_search.setVisible(true);

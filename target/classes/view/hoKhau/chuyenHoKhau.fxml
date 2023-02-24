@@ -11,7 +11,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="547.0" text="Ghi chú: (*)  bắt buộc điền đầy đủ" textFill="#e3d912">
+      <Label layoutX="27.0" layoutY="547.0" text="Ghi chú: (*)  bắt buộc điền đầy đủ" textFill="RED">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
@@ -80,8 +80,8 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <DatePicker fx:id="ngay_chuyen_den_datepicker" layoutX="253.0" layoutY="361.0" onAction="#ngaychuyenden_datepicker" prefHeight="37.0" prefWidth="268.0" promptText="Ngày chuyển đến" style="-fx-control-inner-background: #FFF; -fx-background-color: #FFF;" />
-      <TextField fx:id="phuong_xa_cd" layoutX="253.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="Phường/Xã mới" style="-fx-background-color: #FFF;">
+      <DatePicker fx:id="ngay_chuyen_den_datepicker" layoutX="254.0" layoutY="361.0" onAction="#ngaychuyenden_datepicker" prefHeight="37.0" prefWidth="268.0" promptText="Ngày chuyển đến" style="-fx-control-inner-background: #FFF; -fx-background-color: #FFF;" />
+      <TextField fx:id="phuong_xa_cd" layoutX="254.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="Phường/Xã mới" style="-fx-background-color: #FFF;">
          <font>
             <Font size="16.0" />
          </font></TextField>

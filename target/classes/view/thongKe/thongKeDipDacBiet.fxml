@@ -9,7 +9,7 @@
     <children>
         <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
             <children>
-                <ImageView fx:id="backImageView" fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="backImageView" fitHeight="36.0" fitWidth="127.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/back_blue.png" />
                     </image>
@@ -29,7 +29,7 @@
             <TableColumn fx:id="moTa" editable="false" prefWidth="97.0" sortType="DESCENDING" style="-fx-alignment: CENTER;" text="Mô tả" />
          </columns>
       </TableView>
-      <Label fx:id="namHocLabel" layoutX="93.0" layoutY="145.0" text="Năm học" textFill="WHITE">
+      <Label fx:id="namHocLabel" layoutX="93.0" layoutY="145.0" text="Năm " textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

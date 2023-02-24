@@ -126,12 +126,12 @@
                   </TextField>
               </children>
           </Pane>
-          <Button layoutX="372.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" text="Xác nhận">
+          <Button layoutX="372.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: white;" text="Xác nhận">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>
           </Button>
-          <Button layoutX="510.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="113.0" text="Hủy">
+          <Button layoutX="510.0" layoutY="546.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: white;" text="Hủy">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>

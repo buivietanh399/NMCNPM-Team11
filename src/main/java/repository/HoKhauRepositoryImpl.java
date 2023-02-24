@@ -981,4 +981,20 @@ public class HoKhauRepositoryImpl implements  HoKhauRepository {
             return fx;
         }
     }
+
+    public String get_CMND_ChuHo(int idHoKhau){
+        String cmnd = "";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(SQLCommand.LICH_SU_QUERY_XOA_CMND_CHU_HO);
+            pstmt.setInt(1,idHoKhau);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                cmnd = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            return cmnd;
+    }
 }

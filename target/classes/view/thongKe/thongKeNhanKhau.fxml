@@ -9,7 +9,7 @@
     <children>
         <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #0047AB;">
             <children>
-                <ImageView fx:id="nhanKhauBackIcon" fitHeight="50.0" fitWidth="153.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="nhanKhauBackIcon" fitHeight="36.0" fitWidth="127.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/back_blue.png" />
                     </image>

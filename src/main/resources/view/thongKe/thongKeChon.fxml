@@ -33,9 +33,9 @@
             </TextField>
          </children>
       </Pane>
-      <Pane layoutX="-5.0" prefHeight="66.0" prefWidth="1191.0" style="-fx-background-color: #0047AB;">
+      <Pane prefHeight="66.0" prefWidth="1186.0" style="-fx-background-color: #0047AB;">
          <children>
-            <ImageView fx:id="hoKhauBackIcon" fitHeight="50.0" fitWidth="153.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="hoKhauBackIcon" fitHeight="36.0" fitWidth="127.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/back_blue.png" />
                </image>

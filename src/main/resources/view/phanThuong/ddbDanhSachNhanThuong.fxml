@@ -12,11 +12,6 @@
                   <Font name="System Bold" size="30.0" />
               </font>
           </Label>
-          <Button mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: WHITE;" text="BACK">
-              <font>
-                  <Font name="System Bold" size="20.0" />
-              </font>
-          </Button>
           <Label layoutX="59.0" layoutY="104.0" text="Danh sách nhân khẩu được nhận thưởng" textFill="WHITE">
               <font>
                   <Font name="System Bold Italic" size="20.0" />
@@ -45,5 +40,10 @@
                   <TableColumn fx:id="kiemTraCol" prefWidth="116.0" style="-fx-aligment: CENTER;" text="Đã trao thưởng" />
               </columns>
           </TableView>
+      <ImageView fitHeight="43.0" fitWidth="126.0" onMouseClicked="#quayLaiClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/back_blue.png" />
+         </image>
+      </ImageView>
       </children>
   </Pane>

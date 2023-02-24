@@ -2,6 +2,7 @@ package controller.phanThuong;
 
 import entity.DipHocSinhGioi;
 import entity.LichSuHoatDong;
+import entity.LichSuHoatDongXoa;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -194,18 +195,14 @@ public class HocSinhGioiController implements Initializable {
         alert.setContentText(Message.canhBaoXoaDip);
         Optional<ButtonType> result =  alert.showAndWait();
         if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
+
+
             DipHocSinhGioi dipHocSinhGioi = hsgTable.getSelectionModel().getSelectedItem();
+
+           //xóa
             hocSinhGioiImpl.xoaDipHocSinhGioi(dipHocSinhGioi.getIdDip());
             hsgTable.setItems(hocSinhGioiImpl.bangDipHocSinhGioi());
             alert.close();
-
-            //thêm LSHD
-            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-            lichSuHoatDong.setTenHD("Xóa dịp trao thưởng ");
-            lichSuHoatDong.setIdHD(dipHocSinhGioi.getIdDip());
-            lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
-            lichSuHoatDong.setNoiDungHD("");
-            lichSuHoatDongRepository.addHSG(lichSuHoatDong);
 
 
             Alert newAleart = new Alert(Alert.AlertType.INFORMATION);

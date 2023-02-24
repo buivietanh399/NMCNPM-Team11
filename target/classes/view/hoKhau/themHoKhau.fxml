@@ -57,7 +57,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="557.0" layoutY="64.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="RED">
+      <Label layoutX="43.0" layoutY="70.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="RED">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>

@@ -12,7 +12,7 @@
                   <Font name="System Bold" size="30.0" />
               </font>
           </Label>
-          <Label layoutX="56.0" layoutY="587.0" text="Ghi chú: (*) bắt buộc nhập đầy đủ " textFill="RED">
+          <Label layoutX="56.0" layoutY="637.0" text="Ghi chú: (*) bắt buộc nhập đầy đủ " textFill="RED">
               <font>
                   <Font name="System Italic" size="20.0" />
               </font>
@@ -105,7 +105,7 @@
                           <Font name="System Bold" size="20.0" />
                       </font>
                   </Label>
-                  <Label layoutX="1033.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+                  <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="RED">
                       <font>
                           <Font size="20.0" />
                       </font>
@@ -117,12 +117,12 @@
                   </Button>
               </children>
           </Pane>
-          <Button layoutX="229.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: white;" text="Xác nhận ">
+          <Button layoutX="386.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: white;" text="Xác nhận ">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>
           </Button>
-          <Button layoutX="411.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="119.0" style="-fx-background-color: white;" text="Hủy">
+          <Button layoutX="539.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#huyClick" prefHeight="43.0" prefWidth="119.0" style="-fx-background-color: white;" text="Hủy">
               <font>
                   <Font name="System Bold" size="20.0" />
               </font>
@@ -141,6 +141,6 @@
                   </Label>
               </children>
           </Pane>
-          <ImageView fx:id="anhMinhChung" fitHeight="335.0" fitWidth="551.0" layoutX="530.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="anhMinhChung" fitHeight="150.0" fitWidth="200.0" layoutX="687.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true" />
       </children>
   </Pane>

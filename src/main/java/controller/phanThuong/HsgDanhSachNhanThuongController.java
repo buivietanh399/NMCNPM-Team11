@@ -144,7 +144,7 @@ public class HsgDanhSachNhanThuongController implements Initializable {
             lichSuHoatDong.setTenHD("Xóa học sinh nhận thưởng HSG ");
             lichSuHoatDong.setIdHD(dipHocSinhGioi.getIdDip());
             lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
-            lichSuHoatDong.setNoiDungHD("Xóa học sinh với ID: "+ nkhsg.getIdNhanKhau());
+            lichSuHoatDong.setNoiDungHD("Xóa nhân khẩu với ID: "+ nkhsg.getIdNhanKhau());
             lichSuHoatDongRepository.addHSG(lichSuHoatDong);
         }
     }

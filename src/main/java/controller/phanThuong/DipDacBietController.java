@@ -209,7 +209,7 @@ public class DipDacBietController implements Initializable {
             lichSuHoatDong.setTenHD("Xóa dịp trao thưởng ");
             lichSuHoatDong.setIdHD(dipDacBiet.getIdDip());
             lichSuHoatDong.setThoiGianHD(Date.valueOf(LocalDate.now()));
-            lichSuHoatDong.setNoiDungHD("");
+            lichSuHoatDong.setNoiDungHD("Xóa dịp: " + dipDacBiet.getTen() + " năm: " + dipDacBiet.getNam());
             lichSuHoatDongRepository.addDB(lichSuHoatDong);
         }
     }
