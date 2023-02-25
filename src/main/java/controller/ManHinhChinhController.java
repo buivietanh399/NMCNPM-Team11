@@ -197,7 +197,7 @@ public class ManHinhChinhController implements Initializable {
         //change color
         dangXuatButton.setOnMouseExited(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
-                dangXuatButton.setStyle("-fx-background-color: #6b91fb;-fx-background-radius: 20;");
+                dangXuatButton.setStyle("-fx-background-color: #00008B;-fx-background-radius: 20;");
             }
         });
     }

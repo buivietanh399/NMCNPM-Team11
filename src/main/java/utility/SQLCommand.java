@@ -125,7 +125,7 @@ public class SQLCommand {
     public static String NHAN_KHAU_QUERY_DO_TUOI_LAO_DONG_NAM = "SELECT YEAR(chuyenDenNgay) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 23 AND YEAR(NOW()) - YEAR(ngaySinh) <= 64";
     public static String NHAN_KHAU_QUERY_NGHI_HUU_NAM = "SELECT YEAR(chuyenDenNgay) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 65";
 
-    public static String NHAN_KHAU_QUERY_YEAR = "SELECT DISTINCT YEAR(chuyenDenNgay) FROM nhan_khau";
+    public static String NHAN_KHAU_QUERY_YEAR = "SELECT DISTINCT YEAR(chuyenDenNgay) FROM nhan_khau  ";
     // ho_khau
 
     //trangthaicutru

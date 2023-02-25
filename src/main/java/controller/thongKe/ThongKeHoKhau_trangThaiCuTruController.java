@@ -58,7 +58,6 @@ public class ThongKeHoKhau_trangThaiCuTruController implements Initializable{
 
     //select cac nam
     public  void setOptions(){
-
         ArrayList<String> listYear = nhanKhauRepository.listYear();
         yearComboBox.getItems().clear();
         int n = listYear.size();
@@ -68,7 +67,6 @@ public class ThongKeHoKhau_trangThaiCuTruController implements Initializable{
         for( int i = min_year ; i <= MAX_YEAR; i++){
             MenuItem menuItem = new MenuItem(Integer.toString(i));
             yearComboBox.getItems().add(Integer.toString(i));
-
         }
     }
 

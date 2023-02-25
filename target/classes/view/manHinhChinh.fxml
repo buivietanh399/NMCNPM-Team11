@@ -56,12 +56,12 @@
             </Button>
             <Pane prefHeight="234.0" prefWidth="183.0">
                <children>
-                  <Button fx:id="dangXuatButton" layoutX="112.0" layoutY="167.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" onMouseEntered="#dangXuatButtonMouseEntered" onMouseExited="#dangXuatButtonMouseExited" style="-fx-background-color: #00008B; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
+                  <Button fx:id="dangXuatButton" layoutX="112.0" layoutY="167.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" onMouseEntered="#dangXuatButtonMouseEntered" onMouseExited="#dangXuatButtonMouseExited" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #00008B; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="taiKhoanButton" layoutX="15.0" layoutY="167.0" mnemonicParsing="false" onAction="#taiKhoanButtonOnAction" onMouseEntered="#dangXuatButtonMouseEntered" onMouseExited="#dangXuatButtonMouseExited" style="-fx-background-color: #00008B; -fx-background-radius: 50;" text="Tài khoản" textFill="WHITE">
+                  <Button fx:id="taiKhoanButton" layoutY="167.0" mnemonicParsing="false" onAction="#taiKhoanButtonOnAction" onMouseEntered="#dangXuatButtonMouseEntered" onMouseExited="#dangXuatButtonMouseExited" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #00008B; -fx-background-radius: 50;" text="Người dùng" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
